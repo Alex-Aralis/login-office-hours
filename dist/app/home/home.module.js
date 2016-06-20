@@ -1,7 +1,9 @@
 (function(){
     'use strict'
 
-    appMutantDeps.push('mutantApp.home');
+    var moduleName = 'mutantApp.home';
 
-    angular.module('mutantApp', []);
+    appMutantDeps.push(moduleName);
+
+    angular.module(moduleName, []);
 })();

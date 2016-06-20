@@ -4,13 +4,14 @@
     angular.module('mutantApp.home')
         .config(homeRouteConfigFunction);
 
-    homeRouteConfigFunction.$injector = ['$stateProvider'];
-    function templateConfigFunction($stateController){
+    homeRouteConfigFunction.$inject = ['$stateProvider'];
+    function homeRouteConfigFunction($stateProvider){
         $stateProvider
         
-        .state('mutantApp.home',{
-            url:'/',
-            templateUrl:'',
+        .state('home',{
+            url:'/home',
+            templateUrl: 'app/home/home.html',
+            //templateUrl:'app/home/home.html',
         });        
     }
 })();

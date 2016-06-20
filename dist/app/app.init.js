@@ -1,5 +1,5 @@
 var appMutantDeps = [
-    'firebase',
-    'ui-router',
+    'ng-firebase',
+    'ui.router',
 ];
 

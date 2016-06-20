@@ -9,7 +9,7 @@
         <link rel='stylesheet' type='text/css' href='app/content/css/app.css'>
     </head>
 
-    <body ng-app='mutantOfficeHours'>
+    <body ng-app='mutantApp'>
 
         <div ui-view></div>
 
@@ -17,12 +17,17 @@
         <script src='bower_components/jquery/dist/jquery.js'></script>
         <script src='bower_components/foundation/js/foundation.js'></script>
         <script src='bower_components/angular/angular.js'></script>
-        <script src='bower_components/angular-firebase/ng-firebase.js'></script>
         <script src='bower_components/angular-ui-router/release/angular-ui-router.js'></script>
+        <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+        <script src="bower_components/angular-firebase/ng-firebase.js"></script>
+        <script src="bower_components/angular-firebase/ng-firebase-collection.js"></script>
+        <script src="bower_components/angular-firebase/ng-firebase-binding.js"></script>
+
 
         <!--script src=''></script-->
         <script src='app/app.init.js'></script>
-        <script src=''></script>
+        <script src='app/home/home.module.js'></script>
+        <script src='app/home/config.route.js'></script>
         <script src='app//app.module.js'></script>
     </body>
 </html>

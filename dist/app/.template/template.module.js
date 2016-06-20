@@ -1,7 +1,9 @@
 (function(){
     'use strict'
 
-    appMutantDeps.push('mutantApp.template');
+    var moduleName = 'mutantApp.template';
 
-    angular.module('mutantApp', []);
+    appMutantDeps.push(moduleName);
+
+    angular.module(moduleName, []);
 })();
