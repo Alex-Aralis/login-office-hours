@@ -2,10 +2,10 @@
   "name": "mutant-office-hours",
   "version": "0.0.0",
   "description": "a full stack app with user authentication",
-  "main": "app.js",
+  "main": "dist/mutantApp/app.module.js",
   "scripts": {
     "postinstall": "bower install",
-    "start": "http-server -p 8080 app",
+    "start": "http-server -p 8080 dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
