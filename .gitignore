@@ -1,4 +1,4 @@
-app/firebaseConfig.js
-app/bower_components/
+dist/app/firebaseConfig.js
+dist/bower_components/
 node_modules/
 
