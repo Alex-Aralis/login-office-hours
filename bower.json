@@ -19,6 +19,7 @@
     "jquery": "^3.0.0",
     "angular": "^1.5.7",
     "angular-ui-router": "ui-router#^0.3.1",
-    "angular-firebase": "^0.0.2"
+    "angular-firebase": "^0.0.2",
+    "foundation-sites": "^6.2.3"
   }
 }

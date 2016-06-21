@@ -4,7 +4,7 @@
   "description": "a full stack app with user authentication",
   "main": "dist/mutantApp/app.module.js",
   "scripts": {
-    "postinstall": "foundation new; bower install",
+    "postinstall": "bower install",
     "start": "http-server -p 8080 -c-1 dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
