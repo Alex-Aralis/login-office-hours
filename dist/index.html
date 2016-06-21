@@ -24,10 +24,22 @@
         <script src="bower_components/angular-firebase/ng-firebase-binding.js"></script>
 
 
-        <!--script src=''></script-->
+        <!-- must be run first -->
         <script src='app/app.init.js'></script>
+
+        <!-- services  -->
+        <script src='app/services/sheduler.service.js'></script>
+
+        <!-- for the home page -->
         <script src='app/home/home.module.js'></script>
         <script src='app/home/config.route.js'></script>
+
+        <!-- for the list view -->
+        <script src='app/list/list.module.js'></script>
+        <script src='app/list/config.route.js'></script>
+        <script src='app/list/list.controller.js'></script>
+
+        <!-- load main module -->
         <script src='app//app.module.js'></script>
     </body>
 </html>

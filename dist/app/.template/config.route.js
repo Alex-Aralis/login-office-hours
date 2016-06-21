@@ -4,11 +4,11 @@
     angular.module('mutantApp.template')
         .config(templateRouteConfigFunction);
 
-    templateRouteConfigFunction.$injector = ['$stateProvider'];
+    templateRouteConfigFunction.$inject = ['$stateProvider'];
     function templateConfigFunction($stateProvider){
         $stateProvider
 
-        .state('mutantApp.template',{
+        .state('template',{
             url: '/template',
             templateUrl: 'template',
             controller: 'mutantApp.template.controller',
