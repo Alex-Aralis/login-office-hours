@@ -1,20 +1,30 @@
 <div class='row'>
     <form ng-submit="vm.addMutant(vm.inputMutant)">
-        <fieldset>
             <div class='input-group'>
-                <div class='medium-3 small-6 columns'>
-                    <input ng-model='vm.inputMutant.name' type="text"  placeholder="name">
-                </div>
-                <div class='medium-3 small-6 columns'>
-                    <input ng-model="vm.inputMutant.phone" type="text" placeholder="Phone Number">
-                </div>
-                <div  class='input-group-field medium-4 small-8 columns' >
-                    <input ng-model='vm.inputMutant.topic' type="text" placeholder="Topic">
-                </div>
-                <div class='input-group-button medium-2 small-4 columns'>
-                    <input type="submit" class='button expaned'>
-                </div>
+                <input 
+                    ng-model='vm.inputMutant.name' 
+                    placeholder="name"
+                    class='input-group-field' 
+                    type="text"  
+                >
+                <input 
+                    class='input-group-field' 
+                    ng-model="vm.inputMutant.phone" 
+                    type="text" 
+                    placeholder="Phone Number"
+                >
+                <input 
+                    class='input-group-field' 
+                    ng-model='vm.inputMutant.topic' 
+                    type="text" 
+                    placeholder="Topic"
+                > 
+                <div class='input-group-button'><input 
+                    type="submit" 
+                    class='button'
+                ></div>
             </div>
+        <fieldset>
         </fieldset>
     </form>
 </div>

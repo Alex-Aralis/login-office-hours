@@ -4,7 +4,7 @@
   "description": "a full stack app with user authentication",
   "main": "dist/mutantApp/app.module.js",
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "foundation new; bower install",
     "start": "http-server -p 8080 -c-1 dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +20,8 @@
   "homepage": "https://github.com/Alex-Aralis/login-office-hours#readme",
   "devDependencies": {
     "http-server": "^0.9.0"
+  },
+  "dependencies": {
+    "foundation-cli": "^2.1.0"
   }
 }
