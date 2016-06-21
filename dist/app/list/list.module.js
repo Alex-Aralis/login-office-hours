@@ -5,5 +5,5 @@
 
     appMutantDeps.push(moduleName);
 
-    angular.module(moduleName, ['mutantApp.scheduler']);
+    angular.module(moduleName, ['mutantApp.services.core']);
 })();

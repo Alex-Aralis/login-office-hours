@@ -11,7 +11,7 @@
 
     <body ng-app='mutantApp'>
 
-        <div ui-view></div>
+        <div class='row' id='main' ui-view></div>
 
         <!--script src='bower_components/'></script-->
         <script src='bower_components/jquery/dist/jquery.js'></script>
@@ -28,7 +28,8 @@
         <script src='app/app.init.js'></script>
 
         <!-- services  -->
-        <script src='app/services/sheduler.service.js'></script>
+        <script src='app/services/core.services.module.js'></script>
+        <script src='app/services/scheduler.service.js'></script>
 
         <!-- for the home page -->
         <script src='app/home/home.module.js'></script>

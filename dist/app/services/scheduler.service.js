@@ -1,9 +1,5 @@
 (function(){
-    var moduleName = 'mutantApp.scheduler';
-
-    appMutantDeps.push(moduleName);    
-
-    angular.module(moduleName, [])
+    angular.module('mutantApp.services.core')
         .factory('scheduler', schedulerFactory);
 
     schedulerFactory.$inject = [];

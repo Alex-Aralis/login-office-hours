@@ -1,22 +1,28 @@
-<form ng-submit="vm.addMutant(vm.inputMutant)" class="row">
-    <div class='medium-3 small-6 column'>
-        <input ng-model='vm.inputMutant.name' type="text"  placeholder="name">
-    </div>
-    <div class='medium-3 small-6 column'>
-        <input ng-model="vm.inputMutant.phone" type="text" placeholder="Phone Number">
-    </div>
-    <div  class='medium-4 small-8 column' >
-        <input ng-model='vm.inputMutant.topic' type="text" placeholder="Topic">
-    </div>
-    <div class='medium-2 small-4 column'>
-        <button type="submit" class='button expanded'>Schedule</button>
-    </div>
+<div class='row'>
+    <form ng-submit="vm.addMutant(vm.inputMutant)">
+        <fieldset>
+            <div class='input-group'>
+                <div class='medium-3 small-6 columns'>
+                    <input ng-model='vm.inputMutant.name' type="text"  placeholder="name">
+                </div>
+                <div class='medium-3 small-6 columns'>
+                    <input ng-model="vm.inputMutant.phone" type="text" placeholder="Phone Number">
+                </div>
+                <div  class='input-group-field medium-4 small-8 columns' >
+                    <input ng-model='vm.inputMutant.topic' type="text" placeholder="Topic">
+                </div>
+                <div class='input-group-button medium-2 small-4 columns'>
+                    <input type="submit" class='button expaned'>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
 
-    <div class='row'>
-        <ul>
-            <li ng-repeat='mutant in vm.mutantArray'>
-                {{ mutant }}
-            </li>
-        </ul>
-    </div>
-</form>
+<div class='row'>
+    <ul>
+        <li ng-repeat='mutant in vm.mutantArray'>
+            {{ mutant }}
+        </li>
+    </ul>
+</div>
