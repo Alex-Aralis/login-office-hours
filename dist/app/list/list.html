@@ -1,32 +1,34 @@
 <div class='small-12 columns'>
     <form ng-submit="vm.addMutant(vm.inputMutant)">
         <fieldset class='fieldset'>
-            <div class='medium-3 small-6 column'>
-                <input 
-                    ng-model='vm.inputMutant.name' 
-                    placeholder="name"
-                    type="text"  
-                >
-            </div>
-            <div class='medium-3 small-6 column'>
-                <input 
-                    ng-model="vm.inputMutant.phone" 
-                    type="text" 
-                    placeholder="Phone Number"
-                >
-            </div>
-            <div class='medium-4 small-8 column'>
-                <input 
-                    ng-model='vm.inputMutant.topic' 
-                    type="text" 
-                    placeholder="Topic"
-                > 
-            </div>
-            <div class='medium-2 small-4 column'>
-                <input 
-                    type="submit" 
-                    class='button expanded'
-                >
+            <div class='row'>
+                <div class='medium-3 small-6 column'>
+                    <input 
+                        ng-model='vm.inputMutant.name' 
+                        placeholder="name"
+                        type="text"  
+                    >
+                </div>
+                <div class='medium-3 small-6 column'>
+                    <input 
+                        ng-model="vm.inputMutant.phone" 
+                        type="text" 
+                        placeholder="Phone Number"
+                    >
+                </div>
+                <div class='medium-4 small-8 column'>
+                    <input 
+                        ng-model='vm.inputMutant.topic' 
+                        type="text" 
+                        placeholder="Topic"
+                    > 
+                </div>
+                <div class='medium-2 small-4 column'>
+                    <input 
+                        type="submit" 
+                        class='button expanded'
+                    >
+                </div>
             </div>
         </fieldset>
     </form>
