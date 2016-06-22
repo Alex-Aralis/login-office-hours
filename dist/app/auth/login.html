@@ -1,7 +1,7 @@
 <div class="medium-6 large-4 columns">
-<form ng-submit='vm.register()' class="row column">
+<form ng-submit='vm.login()' class="row column">
   <div class="row column log-in-form">
-    <h4 class="text-center">Register with your email account</h4>
+    <h4 class="text-center">Log in with your email account</h4>
     <label>Email
       <input ng-model='vm.newUser.email' type="email" placeholder="somebody@example.com">
     </label>
@@ -9,7 +9,8 @@
       <input ng-model='vm.newUser.password' type="password" placeholder="Password">
     </label>
     <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
-    <p><button type="submit" class="button expanded">Register</button></p>
+    <p><button type="submit" class="button expanded">Log In</button></p>
+    <p class="text-center"><a href="#">Forgot your password?</a></p>   
   </div>
 </form>
 </div>

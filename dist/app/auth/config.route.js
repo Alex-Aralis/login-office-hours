@@ -13,6 +13,12 @@
             templateUrl: 'app/auth/register.html',
             controller: 'RegisterController',
             controllerAs: 'vm',
+        })
+        .state('login', {
+            url: '^/login',
+            templateUrl: 'app/auth/login.html',
+            controller: 'LoginController',
+            controllerAs: 'vm',
         });
     }
 })();
