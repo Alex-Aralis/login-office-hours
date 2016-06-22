@@ -5,5 +5,5 @@
 
     appMutantDeps.push(moduleName);
 
-    angular.module(moduleName, []);
+    angular.module(moduleName, ['firebase']);
 })();

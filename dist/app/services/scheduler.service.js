@@ -2,10 +2,12 @@
     angular.module('mutantApp.services.core')
         .factory('scheduler', schedulerFactory);
 
-    schedulerFactory.$inject = [];
-    function schedulerFactory(){
+    schedulerFactory.$inject = ['$firebaseArray'];
+    function schedulerFactory($firebaseArray){
+        var mutantsRef = firebase.database().ref().child('mutantArray');
+
         var scheduler =  {
-            mutantArray: [],
+            mutantArray: $firebaseArray(mutantsRef),
             addMutant: addMutant,
         }
         return scheduler;
@@ -13,7 +15,8 @@
         //////////////////
 
         function addMutant(mutant){
-            scheduler.mutantArray.push(mutant);
+            
+            scheduler.mutantArray.$add(mutant);
             return 
         }
     }
