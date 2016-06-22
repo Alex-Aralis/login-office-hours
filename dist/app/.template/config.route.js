@@ -5,13 +5,13 @@
         .config(templateRouteConfigFunction);
 
     templateRouteConfigFunction.$inject = ['$stateProvider'];
-    function templateConfigFunction($stateProvider){
+    function templateRouteConfigFunction($stateProvider){
         $stateProvider
 
         .state('template',{
             url: '/template',
             templateUrl: 'template',
-            controller: 'mutantApp.template.controller',
+            controller: 'TemplateController',
             controllerAs: 'vm',
         });
     }

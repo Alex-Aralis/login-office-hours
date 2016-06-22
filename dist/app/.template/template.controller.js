@@ -2,7 +2,7 @@
     'use strict'
 
     angular.module('mutantApp.template')
-        .controller('mutantApp.template.controller', templatControllerFunction);
+        .controller('TemplateController', templatControllerFunction);
 
     templateControllerFunction.$inject = [];
     function templateControllerFunction(){

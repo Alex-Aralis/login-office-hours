@@ -15,7 +15,7 @@
 
     <body ng-app='mutantApp'>
 
-        <div class='row' id='main' ui-view></div>
+        <div class='row align-center' id='main' ui-view></div>
 
         <!--script src='bower_components/'></script-->
         <script src='bower_components/jquery/dist/jquery.js'></script>
@@ -40,6 +40,11 @@
         <!-- for the home page -->
         <script src='app/home/home.module.js'></script>
         <script src='app/home/config.route.js'></script>
+
+        <!-- for user registration and login -->
+        <script src='app/auth/auth.module.js'></script>
+        <script src='app/auth/register.auth.controller.js'></script>
+        <script src='app/auth/config.route.js'></script>
 
         <!-- for the list view -->
         <script src='app/list/list.module.js'></script>

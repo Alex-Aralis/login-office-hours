@@ -1,3 +1,8 @@
 #main {
   margin-top: 8em;
 }
+
+.log-in-form {
+  padding: 1rem;
+  border-radius: 3px; 
+}

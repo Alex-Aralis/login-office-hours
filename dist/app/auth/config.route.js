@@ -10,8 +10,8 @@
 
         .state('register',{
             url: '/register',
-            templateUrl: 'app/auth/auth.html',
-            controller: 'mutantApp.auth.controller',
+            templateUrl: 'app/auth/register.html',
+            controller: 'RegisterController',
             controllerAs: 'vm',
         });
     }
