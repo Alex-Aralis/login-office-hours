@@ -8,20 +8,15 @@
     function RegisterAuthControllerFunction(auth){
         var vm = this;
         
-        vm.newUser = new User();
+        vm.newUser = new auth.User();
         vm.register = register;
-
-        function User(){
-            this.email = '';
-            this.password = '';
-        }
 
         ///////////////////////
 
 
         function register(){
             auth.register(vm.newUser)
-            vm.newUser = new User();
+            vm.newUser = new auth.User();
         }
         
     }

@@ -8,13 +8,8 @@
     function loginAuthControllerFunction(auth, $state){
         var vm = this;
         
-        vm.oldUser = new User();
+        vm.oldUser = new auth.User();
         vm.login = login;
-
-        function User(){
-            this.email = '';
-            this.password = '';
-        }
 
         ///////////////////////
 

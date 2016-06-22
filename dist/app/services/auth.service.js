@@ -11,6 +11,7 @@
         var service = {
             register: register,
             login: login,
+            User: User,
         } 
 
         return service;
