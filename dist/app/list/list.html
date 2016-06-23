@@ -1,4 +1,4 @@
-<div class='small-12 columns'>
+<div class='row columns small-12 collapse'>
     <form ng-submit="vm.addMutant(vm.inputMutant)">
         <fieldset class='fieldset'>
             <div class='row'>
@@ -34,10 +34,27 @@
     </form>
 </div>
 
-<div class='row'>
-    <ul>
-        <li ng-repeat='mutant in vm.mutantArray'>
-            {{ mutant }}
-        </li>
-    </ul>
+<div class='row column small-12 collapse'>
+    <table class='hover'>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Topic</th>
+                <th>Notified</th>
+                <th>Complete</th>
+                <th>Actions</th>
+            </tr>
+
+        <tbody>
+            <tr ng-repeat='mutant in vm.mutantArray'>
+                <td>{{ mutant.name }}</td>
+                <td>{{ mutant.phone }}</td>
+                <td>{{ mutant.topic }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 </div>

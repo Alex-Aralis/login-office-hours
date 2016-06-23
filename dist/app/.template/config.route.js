@@ -12,7 +12,7 @@
             parent: 'navbar',
             url: '/template',
             templateUrl: 'template',
-            controller: 'TemplateController',
+            controller: 'TemplateController'
             controllerAs: 'vm',
         });
     }
