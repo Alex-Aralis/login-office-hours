@@ -15,7 +15,7 @@
 
         function login(){
             auth.login(vm.oldUser);
-            $state.go('home');  
+            $state.go('shell.home');  
         }
         
     }
