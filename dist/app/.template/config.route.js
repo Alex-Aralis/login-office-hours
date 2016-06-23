@@ -9,6 +9,7 @@
         $stateProvider
 
         .state('template',{
+            parent: 'navbar',
             url: '/template',
             templateUrl: 'template',
             controller: 'TemplateController',

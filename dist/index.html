@@ -15,7 +15,7 @@
 
     <body ng-app='mutantApp'>
 
-        <div class='row align-center' id='main' ui-view></div>
+        <div class='' ui-view></div>
 
         <!--script src='bower_components/'></script-->
         <script src='bower_components/jquery/dist/jquery.js'></script>
@@ -37,6 +37,11 @@
         <script src='app/services/core.services.module.js'></script>
         <script src='app/services/scheduler.service.js'></script>
         <script src='app/services/auth.service.js'></script>
+
+        <!-- shell that contains content -->
+        <script src='app/shell/shell.module.js'></script>
+        <script src='app/shell/navbar.shell.controller.js'></script>
+        <script src='app/shell/config.route.js'></script>
 
         <!-- for the home page -->
         <script src='app/home/home.module.js'></script>

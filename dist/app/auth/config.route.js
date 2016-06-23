@@ -8,13 +8,15 @@
     function authRouteConfigFunction($stateProvider){
         $stateProvider
 
-        .state('register',{
+        .state('shell.register',{
+            parent: 'shell',
             url: '/register',
             templateUrl: 'app/auth/register.html',
             controller: 'RegisterController',
             controllerAs: 'vm',
         })
-        .state('login', {
+        .state('shell.login', {
+            parent: 'shell',
             url: '^/login',
             templateUrl: 'app/auth/login.html',
             controller: 'LoginController',

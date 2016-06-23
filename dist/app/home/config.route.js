@@ -8,10 +8,10 @@
     function homeRouteConfigFunction($stateProvider){
         $stateProvider
         
-        .state('home',{
+        .state('shell.home',{
+            parent: 'shell',
             url:'/home',
             templateUrl: 'app/home/home.html',
-            //templateUrl:'app/home/home.html',
         });        
     }
 })();
