@@ -16,11 +16,11 @@
                 this.phone = obj.phone;
                 this.topic = obj.topic;
                 this.name = obj.name;
-            }
-
-            this.phone = null;
-            this.topic = null;
-            this.name = null;
+            }else{
+                this.phone = null;
+                this.topic = null;
+                this.name = null;
+            }   
         }
 
         //////////////////

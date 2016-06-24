@@ -12,7 +12,7 @@
         vm.mutantArray = scheduler.mutantArray;
 
         vm.addMutant = addMutant;
-        vm.sendText = sendText;
+        vm.sendTextTo = sendTextTo;
         
         ////////////
    
@@ -21,18 +21,27 @@
             vm.inputMutant = new scheduler.Mutant();
         }
 
-        function sendText(mutant){
+        function sendTextTo(mutant){
+            console.log(mutant);
+
+            console.log(new texter.Text({
+                name: mutant.name,
+                topic: mutant.topic,
+                phone: mutant.phone,
+            }));
+
             texter.send(new texter.Text({
                 name: mutant.name,
                 topic: mutant.topic,
                 phone: mutant.phone,
             }))
-            .then(function(){
+            .then(function(ret){
                 mutant.notified = true;
                 scheduler.updateMutant(mutant);
             })
-            .catch(function(){
+            .catch(function(err){
                 console.log('send text failed');
+                console.log(err);
             });
         }
     }

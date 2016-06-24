@@ -23,12 +23,11 @@
         //////////////////
 
         function addMutant(mutant){
-            
             scheduler.mutantArray.$add(mutant);
         }
 
         function updateMutant(mutant){
-            mutantArray.$save(mutant);
+            scheduler.mutantArray.$save(mutant);
         }
     }
 })();

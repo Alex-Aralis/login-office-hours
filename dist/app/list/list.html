@@ -51,8 +51,8 @@
                 <td>{{ mutant.name }}</td>
                 <td>{{ mutant.phone }}</td>
                 <td>{{ mutant.topic }}</td>
-                <td></td>
-                <td></td>
+                <td>{{ mutant.notified ? 'Yes' : 'No' }}</td>
+                <td><input type="checkbox" ng-model="mutant.complete" ng-change="vm.sendTextTo(mutant)"></td>
                 <td></td>
             </tr>
         </tbody>
