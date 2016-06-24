@@ -8,8 +8,7 @@
     function homeRouteConfigFunction($stateProvider){
         $stateProvider
         
-        .state('shell.home',{
-            parent: 'shell',
+        .state('home',{
             url:'/home',
             templateUrl: 'app/home/home.html',
         });        

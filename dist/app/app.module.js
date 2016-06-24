@@ -4,6 +4,6 @@
     console.log(appMutantDeps);
     
     angular.module('mutantApp', appMutantDeps).run(['$state', function($state){
-        $state.go('shell.home');
+        $state.go('home');
     }]);
 })();

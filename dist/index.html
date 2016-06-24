@@ -14,6 +14,7 @@
     </head>
 
     <body ng-app='mutantApp'>
+        <aa-navbar></aa-navbar>
 
         <div class='' ui-view></div>
 
@@ -41,12 +42,13 @@
         <script src='app/services/auth.service.js'></script>
 
         <!-- shell that contains content -->
-        <script src='app/shell/shell.module.js'></script>
+        <!--script src='app/shell/shell.module.js'></script>
         <script src='app/shell/navbar.shell.controller.js'></script>
-        <script src='app/shell/config.route.js'></script>
+        <script src='app/shell/config.route.js'></script-->
 
         <!-- layout -->
         <script src='app/layout/layout.module.js'></script>
+        <script src='app/layout/navbar.directive.js'></script>
 
         <!-- for the home page -->
         <script src='app/home/home.module.js'></script>

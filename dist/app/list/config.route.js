@@ -8,8 +8,7 @@
     function listRouteConfigFunction($stateProvider){
         $stateProvider
 
-        .state('shell.list',{
-            parent: 'shell',
+        .state('list',{
             url: '/list',
             templateUrl: 'app/list/list.html',
             controller: 'listController',
