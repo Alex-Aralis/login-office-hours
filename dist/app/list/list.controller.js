@@ -22,14 +22,6 @@
         }
 
         function sendTextTo(mutant){
-            console.log(mutant);
-
-            console.log(new texter.Text({
-                name: mutant.name,
-                topic: mutant.topic,
-                phone: mutant.phone,
-            }));
-
             texter.send(new texter.Text({
                 name: mutant.name,
                 topic: mutant.topic,
