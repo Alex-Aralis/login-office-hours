@@ -11,11 +11,17 @@
             restrict: 'E',
             controller: NavbarController,
             controllerAs: 'vm',
+            scope: {},
         };
     }
 
     
-    function NavbarController(){
+    NavbarController.$inject = ['auth'];
+    function NavbarController(auth){
+        var vm = this;
+
+        vm.logout = auth.logout;
+        vm.isLoggedIn = auth.isLoggedIn;
         
     }
 })();

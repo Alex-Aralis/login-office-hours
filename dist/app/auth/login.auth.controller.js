@@ -14,9 +14,9 @@
         ///////////////////////
 
         function login(){
-            auth.login(vm.oldUser);
-            $state.go('shell.home');  
+            console.log(vm.oldUser);
+
+            auth.login(vm.oldUser)
         }
-        
     }
 })();

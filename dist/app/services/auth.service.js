@@ -11,8 +11,11 @@
         var service = {
             register: register,
             login: login,
+            logout: logout,
+            isLoggedIn: isLoggedIn,
+            getUser: getUser,
             User: User,
-        } 
+        }; 
 
         return service;
 
@@ -37,15 +40,19 @@
         }
 
         function login(user){
-            return fauth.$signInWithEmailAndPassword(user.email, user.password)
+            return fauth.$signInWithEmailAndPassword(user.email, user.password);
+        }
 
-            .then(function(ret){
-                console.log(ret);
-            })
+        function logout(){
+            return fauth.$signOut();
+        }
 
-            .catch(function(error){
-                console.log(error);
-            });
+        function isLoggedIn(){
+            return fauth.$getAuth();
+        }
+
+        function getUser(){
+            return fauth.$requireSignIn();
         }
     }
 })();
