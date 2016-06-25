@@ -12,6 +12,8 @@
         vm.mutants = scheduler.getMutantsOfUser(user);
 
         vm.addMutant = addMutant;
+        vm.deleteMutant = deleteMutant;
+        vm.toggleComplete = toggleComplete;
         vm.sendTextTo = sendTextTo;
         
         ////////////
@@ -19,6 +21,15 @@
         function addMutant(){
             scheduler.addMutantToUser(vm.inputMutant, user);
             vm.inputMutant = new scheduler.Mutant();
+        }
+
+        function deleteMutant(mutant){
+            scheduler.deleteMutantFromMutants(mutant, vm.mutants);
+        }
+
+        function toggleComplete(mutant){
+            mutant.isComplete = !mutant.isComplete;
+            scheduler.updateMutantInMutants(mutant, vm.mutants);
         }
 
         function sendTextTo(mutant){

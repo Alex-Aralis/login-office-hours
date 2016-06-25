@@ -9,15 +9,17 @@
             getMutantsOfUser: getMutantsOfUser,
             addMutantToUser: addMutantToUser,
             updateMutantInMutants: updateMutantInMutants,
+            deleteMutantFromMutants: deleteMutantFromMutants,
         }
 
         return scheduler;
 
         function Mutant(){
             this.name = '';
+            this.phone = '';
             this.topic = '';
             this.notified = false;
-            this.phone = '';
+            this.isComplete = false;
         };
      
         //////////////////
@@ -32,6 +34,10 @@
 
         function updateMutantInMutants(mutant, mutants){
             return mutants.$save(mutant);
+        }
+
+        function deleteMutantFromMutants(mutant, mutants){
+            return mutants.$remove(mutant);
         }
     }
 })();
