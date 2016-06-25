@@ -14,9 +14,10 @@
         ///////////////////////
 
         function login(){
-            console.log(vm.oldUser);
-
             auth.login(vm.oldUser)
+            .then(function(){
+                $state.go('list');
+            });
         }
     }
 })();

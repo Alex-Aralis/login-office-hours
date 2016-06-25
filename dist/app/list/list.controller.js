@@ -4,12 +4,12 @@
     angular.module('mutantApp.list')
         .controller('listController', listControllerFunction);
 
-    listControllerFunction.$inject = ['scheduler', 'texter'];
-    function listControllerFunction(scheduler, texter){
+    listControllerFunction.$inject = ['scheduler', 'texter', 'user'];
+    function listControllerFunction(scheduler, texter, user){
         var vm = this;
         
         vm.inputMutant = new scheduler.Mutant();
-        vm.mutantArray = scheduler.mutantArray;
+        vm.mutants = scheduler.getMutantsOfUser(user);
 
         vm.addMutant = addMutant;
         vm.sendTextTo = sendTextTo;
@@ -17,7 +17,7 @@
         ////////////
    
         function addMutant(){
-            scheduler.addMutant(vm.inputMutant);
+            scheduler.addMutantToUser(vm.inputMutant, user);
             vm.inputMutant = new scheduler.Mutant();
         }
 
@@ -29,7 +29,7 @@
             }))
             .then(function(ret){
                 mutant.notified = true;
-                scheduler.updateMutant(mutant);
+                scheduler.updateMutantInMutants(mutant,vm.mutants)
             })
             .catch(function(err){
                 console.log('send text failed');

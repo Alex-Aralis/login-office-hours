@@ -8,7 +8,7 @@
 
         var firebaseData =  {
             root: root,
-            schedule: root.child('mutantArray'),
+            users: root.child('users'),
             texts: root.child('texts'),            
         }
 

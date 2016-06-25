@@ -6,9 +6,9 @@
     function schedulerFactory($firebaseArray, firebaseData){
         var scheduler =  {
             Mutant: Mutant,
-            mutantArray: $firebaseArray(firebaseData.schedule),
-            addMutant: addMutant,
-            updateMutant: updateMutant,
+            getMutantsOfUser: getMutantsOfUser,
+            addMutantToUser: addMutantToUser,
+            updateMutantInMutants: updateMutantInMutants,
         }
 
         return scheduler;
@@ -22,12 +22,16 @@
      
         //////////////////
 
-        function addMutant(mutant){
-            scheduler.mutantArray.$add(mutant);
+        function getMutantsOfUser(user){
+            return $firebaseArray(firebaseData.users.child(user.uid).child('mutants'));
         }
 
-        function updateMutant(mutant){
-            scheduler.mutantArray.$save(mutant);
+        function addMutantToUser(mutant, user){
+            return scheduler.getMutantsOfUser(user).$add(mutant)
+        }
+
+        function updateMutantInMutants(mutant, mutants){
+            return mutants.$save(mutant);
         }
     }
 })();
