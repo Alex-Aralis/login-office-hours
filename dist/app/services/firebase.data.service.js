@@ -9,7 +9,8 @@
         var firebaseData =  {
             root: root,
             users: root.child('users'),
-            texts: root.child('texts'),            
+            pendingTexts: root.child('pending_texts'),            
+            processedTexts: root.child('processed_texts'),
         }
 
         return firebaseData;

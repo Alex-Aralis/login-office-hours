@@ -38,6 +38,7 @@
                 topic: mutant.topic,
                 phone: mutant.phone,
             }))
+            /*
             .then(function(ret){
                 mutant.notified = true;
                 scheduler.updateMutantInMutants(mutant,vm.mutants)
@@ -45,7 +46,8 @@
             .catch(function(err){
                 console.log('send text failed');
                 console.log(err);
-            });
+            })
+            */;
         }
     }
 })();
