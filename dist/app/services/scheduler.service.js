@@ -12,7 +12,7 @@
             deleteMutantFromMutants: deleteMutantFromMutants,
             reset: reset,
             mutants: null,
-        }
+        };
 
         return scheduler;
 
@@ -35,7 +35,8 @@
         }
 
         function getMutantsOfUser(user){
-            return scheduler.mutants = scheduler.mutants || $firebaseArray(firebaseData.users.child(user.uid).child('mutants'));
+            return scheduler.mutants = scheduler.mutants || 
+                $firebaseArray(firebaseData.users.child(user.uid).child('mutants'));
         }
 
         function addMutantToUser(mutant, user){

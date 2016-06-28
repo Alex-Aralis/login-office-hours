@@ -43,7 +43,19 @@
                     name: mutant.name,
                     topic: mutant.topic,
                     phone: mutant.phone,
-                }));
+                }), 
+                function(snapshot){
+                    console.log('text processed');
+                    console.log(snapshot);
+                    
+                    if(snapshot.val().isSent === true){
+                        console.log('success');
+                        mutant.notified = true; 
+                        scheduler.updateMutantInMutants(mutant, vm.mutants);
+                    }else{
+                        console.log('failed');
+                    }
+                });
             }
         }
 })();

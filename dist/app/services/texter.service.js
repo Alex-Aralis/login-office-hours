@@ -25,25 +25,16 @@
 
         //////////////////
 
-        function send(text){
+        function send(text, callback){
             firebaseData.pendingTexts.push(text)
                 .then(function(ret){
                     console.log(ret.getKey());
-
+                        
                     return firebaseData.processedTexts
-                        .orderByValue()
+                        .orderByKey()
                         .equalTo(ret.getKey())
-                        .once('child_added',
-                            function(snapshot){
-                                console.log(snapshot);
-                            }
-                        );
-
-        /*
-                        .then(function(snapshot){
-                            console.log(snapshot);
-                        });
-        */
+                        .once('child_added')
+                        .then(callback);
                 });
         } 
     }
