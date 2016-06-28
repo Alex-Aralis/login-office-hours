@@ -16,12 +16,26 @@
     }
 
     
-    NavbarController.$inject = ['auth'];
-    function NavbarController(auth){
+    NavbarController.$inject = ['$scope','auth'];
+    function NavbarController($scope, auth){
         var vm = this;
 
-        vm.logout = auth.logout;
+        vm.logout = logout;
         vm.isLoggedIn = auth.isLoggedIn;
-        
+       
+        ///////////////
+       
+        auth.authObj.$onAuthStateChanged(function(){digest($scope, auth.logout);});
+ 
+        function digest(scope, func){
+            try
+                {scope.$digest();}
+            catch (e)
+                {console.log(e);}
+        }
+
+        function logout(){
+            auth.logout();
+        }
     }
 })();

@@ -9,6 +9,7 @@
         var fauth = $firebaseAuth();
        
         var service = {
+            authObj: fauth,
             register: register,
             login: login,
             logout: logout,
@@ -26,6 +27,7 @@
 
         ///////////////////////
 
+        fauth.$onAuthStateChanged($scope.$digest);
 
         function register(user){
             return fauth.$createUserWithEmailAndPassword(user.email, user.password)

@@ -2,8 +2,8 @@
     angular.module('mutantApp.services.core')
         .factory('scheduler', schedulerFactory);
 
-    schedulerFactory.$inject = ['$firebaseArray', 'firebaseData'];
-    function schedulerFactory($firebaseArray, firebaseData){
+    schedulerFactory.$inject = ['$state', '$firebaseArray', 'firebaseData'];
+    function schedulerFactory($state, $firebaseArray, firebaseData){
         var scheduler =  {
             Mutant: Mutant,
             getMutantsOfUser: getMutantsOfUser,
@@ -28,6 +28,7 @@
 
         function reset(){
             if (scheduler.mutants){
+                $state.go('home');
                 scheduler.mutants.$destroy();
                 scheduler.mutants = null;
             }
