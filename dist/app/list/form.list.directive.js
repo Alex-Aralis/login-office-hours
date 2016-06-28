@@ -21,7 +21,6 @@
 
         ListFormDirectiveController.$inject = ['scheduler'];
         function ListFormDirectiveController(scheduler){
-            console.log(this);
             var vm = this;
 
             vm.addMutant = addMutant;

@@ -9,9 +9,12 @@
         $urlRouterProvider.otherwise('/home');
     }])
 
-    .run(['$state', function runFunction($state){
-        $state.go('home');
-        
+    .run(['$state', '$rootScope', function runFunction($state, $rootScope){
+        $rootScope.$on('$stateChangeError',
+            function(event, toState, fromState, fromParams, error){
+                $state.go('home');
+            }
+        );
     }]);
 
 })();
