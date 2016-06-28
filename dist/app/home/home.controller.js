@@ -5,7 +5,7 @@
         .controller('HomeController', HomeControllerFunction);
 
     HomeControllerFunction.$inject = ['auth'];
-    function HomeControllerFunction(){
+    function HomeControllerFunction(auth){
         var vm = this;
 
         vm.isLoggedIn = auth.isLoggedIn;
