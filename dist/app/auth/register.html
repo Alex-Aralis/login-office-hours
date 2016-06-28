@@ -3,13 +3,31 @@
   <div class="row column log-in-form">
     <h4 class="text-center">Register with your email account</h4>
     <label>Email
-      <input ng-model='vm.newUser.email' type="email" placeholder="somebody@example.com">
+      <input    
+        ng-model='vm.newUser.email' 
+        type="email" 
+        placeholder="somebody@example.com"
+        tabindex="1"
+      >
     </label>
     <label>Password
-      <input ng-model='vm.newUser.password' type="password" placeholder="Password">
+      <input 
+        ng-model='vm.newUser.password' 
+        type="password" 
+        placeholder="Password"
+        tabindex="2"
+      >
     </label>
-    <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
-    <p><button type="submit" class="button expanded">Register</button></p>
+    <input 
+        id="show-password" 
+        type="checkbox"
+        tabindex="3"
+    ><label for="show-password">Show password</label>
+    <p><button 
+        type="submit" 
+        class="button expanded"
+        tabindex="3"
+    >Register</button></p>
   </div>
 </form>
 </div>
