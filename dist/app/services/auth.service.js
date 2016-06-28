@@ -4,8 +4,8 @@
     angular.module('mutantApp.services.core')
         .factory('auth', authFactory);
 
-    authFactory.$inject = ['$firebaseAuth'];
-    function authFactory($firebaseAuth){
+    authFactory.$inject = ['$firebaseAuth', 'scheduler'];
+    function authFactory($firebaseAuth, scheduler){
         var fauth = $firebaseAuth();
        
         var service = {
@@ -44,6 +44,7 @@
         }
 
         function logout(){
+            scheduler.reset();
             return fauth.$signOut();
         }
 

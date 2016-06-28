@@ -1,0 +1,44 @@
+
+<div class='row column small-12 collapse'>
+    <table class='hover'>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Topic</th>
+                <th>Notified</th>
+                <th>Complete</th>
+                <th>Actions</th>
+            </tr>
+
+        <tbody>
+            <tr ng-repeat='mutant in vm.mutants'>
+                <td>{{ mutant.name }}</td>
+                <td>{{ mutant.phone }}</td>
+                <td>{{ mutant.topic }}</td>
+                <td>{{ mutant.notified ? 'Yes' : 'No' }}</td>
+                <td>
+                    <input 
+                        type="checkbox" 
+                        ng-model="mutant.complete" 
+                        ng-change="vm.toggleComplete(mutant)"
+                    >
+                </td>
+                <td>
+                    <input 
+                        value='Notify'
+                        type='button' 
+                        class='button'
+                        ng-click='vm.sendTextTo(mutant)'
+                    >
+                    <input
+                        value='Remove'
+                        type='button'
+                        class='button alert'
+                        ng-click='vm.deleteMutant(mutant)'
+                    >
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
