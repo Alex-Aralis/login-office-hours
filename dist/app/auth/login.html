@@ -1,5 +1,5 @@
 <div class="medium-6 large-4 columns">
-<form ng-submit='vm.login()' class="row column">
+<form ng-submit='vm.login()' class="row column" novalidate>
   <div class="row column log-in-form">
     <h4 class="text-center">Log in with your email account</h4>
     <label>Email
@@ -31,6 +31,8 @@
     >Log In</button></p>
     <p class="text-center"><a href="#">Forgot your password?</a></p>   
   </div>
+  <div class='row column'>
+    <div class='callout alert' ng-show='vm.error' ng-bind='vm.error'></div>
 </form>
 </div>
 
