@@ -4,7 +4,8 @@
 
         <p> nothing much happens here right now but that will change soon.</p>
 
-        <a ui-sref='list' class="large button">Schedule Some Mutants!</a> 
+        <a ng-show='vm.isLoggedIn()' ui-sref='list' class="large button">Schedule Some Mutants!</a> 
+        <a ng-show='!vm.isLoggedIn()' ui-sref='register' class="large button">Get Registered!</a> 
     
     </div>
 </div>
