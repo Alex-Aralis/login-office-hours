@@ -1,38 +1,8 @@
-<div class="medium-6 large-4 columns">
-<form ng-submit='vm.login()' class="row column" novalidate>
-  <div class="row column log-in-form">
-    <h4 class="text-center">Log in with your email account</h4>
-    <label>Email
-      <input 
-        autofocus
-        ng-model='vm.oldUser.email' 
-        type="email" 
-        placeholder="somebody@example.com" 
-        tabindex="1"
-      >
-    </label>
-    <label>Password
-      <input 
-        ng-model='vm.oldUser.password' 
-        type="password" 
-        placeholder="Password"
-        tabindex="1"
-      >
-    </label>
-    <input 
-        id="show-password" 
-        type="checkbox"
-        tabindex="3"
-    ><label for="show-password">Show password</label>
-    <p><button 
-        type="submit" 
-        class="button expanded"
-        tabindex="4" 
-    >Log In</button></p>
-    <p class="text-center"><a href="#">Forgot your password?</a></p>   
-  </div>
-  <div class='row column'>
-    <div class='callout alert' ng-show='vm.error' ng-bind='vm.error'></div>
-</form>
-</div>
 
+<aa-auth-form 
+    error='vm.error' 
+    form-title="Login with email" 
+    submit-function='vm.login(user)'
+    form-button-text='Login'
+>
+</aa-auth-form>

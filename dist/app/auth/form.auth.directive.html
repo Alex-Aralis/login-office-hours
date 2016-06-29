@@ -1,0 +1,60 @@
+<div class="medium-6 large-4 columns">
+<form ng-submit='form.$valid && vm.wrappedSubmitFunction()' class="row column" name='form' novalidate>
+  <div class="row column log-in-form">
+    <h4 class="text-center" ng-bind='vm.formTitle'></h4>
+    <label>Email
+      <input    
+        autofocus
+        ng-model='vm.user.email' 
+        type="email" 
+        placeholder="somebody@example.com"
+        tabindex="1"
+        required
+        name='email'
+        ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1000, 'blur':1000}}"
+      >
+    </label>
+    <label>Password
+      <input 
+        ng-model='vm.user.password' 
+        type="password" 
+        placeholder="Password"
+        tabindex="2"
+        requried
+        name='password'
+        ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1000, 'blur':1000}}"
+      >
+    </label>
+    <input 
+        id="show-password" 
+        type="checkbox"
+        tabindex="3"
+    ><label for="show-password">Show password</label>
+    <p><button 
+        type="submit" 
+        class="button expanded"
+        tabindex="3"
+        ng-bind='vm.formButtonText'
+    >Register</button></p>
+  </div>
+  <div class='row column'>
+    <div class='callout alert' ng-show='vm.error' ng-bind='vm.error'></div>
+  </div>
+  <div class='row column'>
+    <div class='callout alert' ng-show='form.$submitted && form.email.$error.required'>
+        Email required.
+    </div>
+  </div>
+  <div class='row column'>
+    <div class='callout alert' ng-show='form.$submitted && form.email.$error.email'>
+        Invalid email format.
+    </div>
+  </div>
+  <div class='row column'>
+    <div class='callout alert' ng-show='form.$submitted && form.password.$error.required'>
+        Email required.
+    </div>
+  </div>
+</form>
+</div>
+

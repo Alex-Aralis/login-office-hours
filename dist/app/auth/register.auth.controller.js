@@ -8,15 +8,13 @@
     function RegisterAuthControllerFunction($state, auth){
         var vm = this;
         
-        vm.newUser = new auth.User();
         vm.register = register;
         vm.error = null;
 
         ///////////////////////
 
-
-        function register(){
-            auth.register(vm.newUser)
+        function register(user){
+            auth.register(user)
             .then(function(err, ret){
                 console.log('being thened');
                 console.log(err,ret);
@@ -28,7 +26,6 @@
                 console.log(err);
                 vm.error = err;
             });
-            vm.newUser = new auth.User();
         }
         
     }

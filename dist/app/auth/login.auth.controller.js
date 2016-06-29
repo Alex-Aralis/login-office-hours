@@ -8,14 +8,13 @@
     function loginAuthControllerFunction(auth, $state){
         var vm = this;
         
-        vm.oldUser = new auth.User();
         vm.login = login;
         vm.error = null;
 
         ///////////////////////
 
-        function login(){
-            auth.login(vm.oldUser)
+        function login(user){
+            auth.login(user)
             .then(function(err, ret){
                 console.log('being thened');
                 console.log(err, ret);
