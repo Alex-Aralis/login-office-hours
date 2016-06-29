@@ -1,5 +1,5 @@
 <div class="medium-6 large-4 columns">
-<form ng-submit='vm.register()' class="row column">
+<form ng-submit='regForm.$valid && vm.register()' class="row column" name='regForm' novalidate>
   <div class="row column log-in-form">
     <h4 class="text-center">Register with your email account</h4>
     <label>Email
@@ -9,6 +9,9 @@
         type="email" 
         placeholder="somebody@example.com"
         tabindex="1"
+        required
+        name='email'
+        ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1000, 'blur':0}}"
       >
     </label>
     <label>Password
@@ -17,6 +20,8 @@
         type="password" 
         placeholder="Password"
         tabindex="2"
+        requried
+        name='password'
       >
     </label>
     <input 
@@ -32,6 +37,16 @@
   </div>
   <div class='row column'>
     <div class='callout alert' ng-show='vm.error' ng-bind='vm.error'></div>
+  </div>
+  <div class='row column'>
+    <div class='callout alert' ng-show='regForm.$submitted && regForm.email.$error.required'>
+        Email required.
+    </div>
+  </div>
+  <div class='row column'>
+    <div class='callout alert' ng-show='regForm.$submitted && regForm.email.$error.email'>
+        Invalid email format.
+    </div>
   </div>
 </form>
 </div>
