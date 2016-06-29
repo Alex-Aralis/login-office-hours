@@ -19,13 +19,14 @@
             };
         }
 
-        ListTableDirectiveController.$inject = ['texter', 'scheduler'];
-        function ListTableDirectiveController(texter, scheduler){
+        ListTableDirectiveController.$inject = ['$scope', 'firebaseData', 'texter', 'scheduler'];
+        function ListTableDirectiveController($scope, firebaseData, texter, scheduler){
             var vm = this;
 
             vm.deleteMutant = deleteMutant;
             vm.toggleComplete = toggleComplete;
             vm.sendTextTo = sendTextTo;
+            vm.error = null;
 
             ////////////
 
@@ -44,17 +45,21 @@
                     topic: mutant.topic,
                     phone: mutant.phone,
                 }), 
-                function(snapshot){
+                function(processedText){
                     console.log('text processed');
-                    console.log(snapshot);
+                    console.log(processedText);
                     
-                    if(snapshot.val().isSent === true){
+                    if(processedText.isSent === true){
                         console.log('success');
+                        vm.error = null;
                         mutant.notified = true; 
                         scheduler.updateMutantInMutants(mutant, vm.mutants);
                     }else{
                         console.log('failed');
+                        console.log(processedText);
+                        vm.error = processedText.error;
                     }
+                    firebaseData.safeDigest($scope);
                 });
             }
         }

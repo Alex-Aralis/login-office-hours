@@ -11,11 +11,19 @@
             users: root.child('users'),
             pendingTexts: root.child('pending_texts'),            
             processedTexts: root.child('processed_texts'),
+            safeDigest: safeDigest,
         }
 
         return firebaseData;
 
         //////////////////
+
+        function safeDigest(scope){
+            try
+                {scope.$digest();}
+            catch (e)
+                {console.log(e);}
+        }
 
     }
 })();

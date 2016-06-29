@@ -16,8 +16,8 @@
     }
 
     
-    NavbarController.$inject = ['$scope','auth'];
-    function NavbarController($scope, auth){
+    NavbarController.$inject = ['$scope','auth', 'firebaseData'];
+    function NavbarController($scope, auth, firebaseData){
         var vm = this;
 
         vm.logout = logout;
@@ -25,14 +25,11 @@
        
         ///////////////
        
-        auth.authObj.$onAuthStateChanged(function(){digest($scope, auth.logout);});
- 
-        function digest(scope, func){
-            try
-                {scope.$digest();}
-            catch (e)
-                {console.log(e);}
-        }
+        auth.authObj.$onAuthStateChanged(
+            function(){
+                firebaseData.safeDigest($scope);
+            }
+        );
 
         function logout(){
             auth.logout();
