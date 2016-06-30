@@ -7,7 +7,7 @@
 
     function aaAuthForm(){
         return {
-            templateUrl: 'app/auth/form.auth.directive.html',
+            templateUrl: 'app/auth/form/form.auth.directive.html',
             restrict: 'E',
             controller: AuthFormDirectiveController,
             controllerAs: 'vm',

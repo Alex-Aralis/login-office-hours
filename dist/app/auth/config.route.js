@@ -10,7 +10,7 @@
 
         .state('register',{
             url: '/register',
-            templateUrl: 'app/auth/register.html',
+            templateUrl: 'app/auth/register/register.html',
             controller: 'RegisterController',
             controllerAs: 'vm',
             resolve:{
@@ -19,7 +19,7 @@
         })
         .state('login', {
             url: '^/login',
-            templateUrl: 'app/auth/login.html',
+            templateUrl: 'app/auth/login/login.html',
             controller: 'LoginController',
             controllerAs: 'vm',
             resolve:{

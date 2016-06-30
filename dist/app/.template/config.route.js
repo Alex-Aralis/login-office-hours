@@ -11,7 +11,7 @@
         .state('template',{
             parent: 'navbar',
             url: '/template',
-            templateUrl: 'template',
+            templateUrl: 'app/template/template.html',
             controller: 'TemplateController'
             controllerAs: 'vm',
         });
