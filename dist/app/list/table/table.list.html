@@ -15,7 +15,7 @@
             </tr>
 
         <tbody>
-            <tr ng-repeat='mutant in vm.mutants'>
+            <tr ng-repeat="mutant in vm.mutants | orderBy: '-' ">
                 <td>{{ mutant.name }}</td>
                 <td>{{ mutant.phone }}</td>
                 <td>{{ mutant.topic }}</td>
