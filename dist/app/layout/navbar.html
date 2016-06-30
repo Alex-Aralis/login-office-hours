@@ -16,6 +16,7 @@
           <li><a ui-sref='list' ng-show='vm.isLoggedIn()'>Schedule</a></li>
           <li><a ng-show='!vm.isLoggedIn()' ui-sref='login'>Login</a></li>
           <li><a ng-show='vm.isLoggedIn()' ng-click='vm.logout()'>Logout</a></li>
+          <li><a ui-sref="profile" ng-show='vm.isLoggedIn()'>{{ vm.isLoggedIn().displayName }}</a></li>
           <li><a ng-show='!vm.isLoggedIn()' ui-sref='register'>Register</a></li>
         </ul>
       </div>
