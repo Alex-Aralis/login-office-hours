@@ -13,6 +13,9 @@
             templateUrl: 'app/auth/register.html',
             controller: 'RegisterController',
             controllerAs: 'vm',
+            resolve:{
+                noUser: resolveNoUser,
+            },
         })
         .state('login', {
             url: '^/login',
@@ -21,20 +24,12 @@
             controllerAs: 'vm',
             resolve:{
                 noUser: resolveNoUser,
-            }
+            },
         });
 
-        resolveNoUser.$inject = ['auth', '$q'];
-        function resolveNoUser(auth, $q){
-            return $q(function(resolve, reject){
-                auth.getUser()
-                    .then(function(){
-                        reject('user is logged in');
-                    })
-                    .catch(function(){
-                        resolve('user is not logged in');
-                    });
-            });
+        resolveNoUser.$inject = ['auth'];
+        function resolveNoUser(auth){
+            return auth.getNoUser();
         }
     }
 })();

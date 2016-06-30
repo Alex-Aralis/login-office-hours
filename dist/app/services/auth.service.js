@@ -4,8 +4,8 @@
     angular.module('mutantApp.services.core')
         .factory('auth', authFactory);
 
-    authFactory.$inject = ['$firebaseAuth', 'scheduler'];
-    function authFactory($firebaseAuth, scheduler){
+    authFactory.$inject = ['$q', '$firebaseAuth', 'scheduler'];
+    function authFactory($q, $firebaseAuth, scheduler){
         var fauth = $firebaseAuth();
        
         var service = {
@@ -15,6 +15,7 @@
             logout: logout,
             isLoggedIn: isLoggedIn,
             getUser: getUser,
+            getNoUser: getNoUser,
             User: User,
         }; 
 
@@ -48,6 +49,18 @@
 
         function getUser(){
             return fauth.$requireSignIn();
+        }
+
+        function getNoUser(){
+            return $q(function(resolve, reject){
+                fauth.$requireSignIn()
+                    .then(function(){
+                        reject('user is logged in');
+                    })
+                    .catch(function(){
+                        resolve('user is not logged in');
+                    });
+            });
         }
     }
 })();
