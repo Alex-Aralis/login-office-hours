@@ -9,8 +9,10 @@
         var firebaseData =  {
             root: root,
             users: root.child('users'),
-            pendingTexts: root.child('pending_texts'),            
-            processedTexts: root.child('processed_texts'),
+            pendingTexts: root.child('texts').child('pending'),            
+            processedTexts: root.child('texts').child('processed'),
+            pendingEmails: root.child('emails').child('pending'),
+            processedEmails: root.child('emails').child('processed'),
             safeDigest: safeDigest,
         }
 

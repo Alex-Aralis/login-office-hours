@@ -7,7 +7,7 @@
 
         function aaList(){
             return {
-                templateUrl: 'app/list/table.list.html',
+                templateUrl: 'app/list/table/table.list.html',
                 restrict: 'E',
                 controller: ListTableDirectiveController,
                 controllerAs: 'vm',

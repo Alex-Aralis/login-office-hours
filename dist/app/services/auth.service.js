@@ -31,7 +31,10 @@
         fauth.$onAuthStateChanged($scope.$digest);
 
         function register(user){
-            return fauth.$createUserWithEmailAndPassword(user.email, user.password);
+            return fauth.$createUserWithEmailAndPassword(user.email, user.password)
+                .then(function(){
+                    
+                });
         }
 
         function login(user){

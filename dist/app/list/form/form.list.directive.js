@@ -7,7 +7,7 @@
 
         function aaListForm(){
             return {
-                templateUrl: 'app/list/form.list.html',
+                templateUrl: 'app/list/form/form.list.html',
                 restrict: 'E',
                 controller: ListFormDirectiveController,
                 controllerAs: 'vm',
