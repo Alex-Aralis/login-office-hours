@@ -15,9 +15,9 @@
 
         function register(user){
             auth.register(user)
-            .then(function(err, ret){
+            .then(function(err){
                 console.log('being thened');
-                console.log(err,ret);
+                console.log(err);
                 vm.error = null;
                 $state.go('home');
             })
