@@ -16,23 +16,18 @@
     }
 
     
-    NavbarController.$inject = ['$scope','auth', 'firebaseData'];
-    function NavbarController($scope, auth, firebaseData){
+    NavbarController.$inject = ['$rootScope','auth', 'firebaseData'];
+    function NavbarController($rootScope, auth, firebaseData){
         var vm = this;
 
         vm.logout = logout;
         vm.isLoggedIn = auth.isLoggedIn;
-       
+
         ///////////////
        
-        auth.authObj.$onAuthStateChanged(
-            function(){
-                firebaseData.safeDigest($scope);
-            }
-        );
-
         function logout(){
             auth.logout();
         }
+        
     }
 })();

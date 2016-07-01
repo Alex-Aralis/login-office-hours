@@ -4,8 +4,8 @@
     angular.module('mutantApp.services.core')
         .factory('auth', authFactory);
 
-    authFactory.$inject = ['$q', '$firebaseAuth', 'scheduler'];
-    function authFactory($q, $firebaseAuth, scheduler){
+    authFactory.$inject = ['$rootScope', '$q', 'firebaseData', '$firebaseAuth', 'scheduler', 'gravatarData'];
+    function authFactory($rootScope, $q, firebaseData, $firebaseAuth, scheduler, gravatarData){
         var fauth = $firebaseAuth();
        
         var service = {
@@ -35,11 +35,33 @@
             return fauth.$createUserWithEmailAndPassword(newUser.email, newUser.password)
                 .then(function(user){
                     console.log(user);
-                    user.updateProfile({
-                        displayName: newUser.displayName,
-                    }).then(function(setUser){
-                        console.log(service.isLoggedIn());
-                    });
+                    
+                    user.sendEmailVerification();
+                
+                    gravatarData.json(user.email)
+                        .then(function(res){
+                            console.log(res);
+
+                            try{
+                                var gravatarUser = res.data.entry[0];
+                                console.log(gravatarUser);
+
+                                user.updateProfile({
+                                    photoURL: gravatarData.getUrl(user.email, {backup: 'identicon'}),
+                                    displayName: gravatarUser.displayName,
+                                }).then(function(setUser){
+                                    firebaseData.safeDigest($rootScope);
+                                });
+                            }catch(err){
+                                user.updateProfile({
+                                    photoURL: gravatarData.getUrl(user.email, {backup: 'identicon'}),
+                                }).then(function(setUser){
+                                    firebaseData.safeDigest($rootScope);
+                                });
+                                
+                            }
+                        });
+
                 });
         }
 

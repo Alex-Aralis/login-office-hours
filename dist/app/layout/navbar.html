@@ -13,14 +13,15 @@
       <div class="top-bar-right">
         <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
           <li><a ui-sref='home'>Home</a></li>
-          <li><a ui-sref='list' ng-show='vm.isLoggedIn()'>Schedule</a></li>
-          <li><a ng-show='!vm.isLoggedIn()' ui-sref='login'>Login</a></li>
-          <li><a ng-show='vm.isLoggedIn()' ng-click='vm.logout()'>Logout</a></li>
-          <li><a ui-sref="profile" ng-show='vm.isLoggedIn()'>{{ vm.isLoggedIn().displayName }}</a></li>
-          <li><a ng-show='!vm.isLoggedIn()' ui-sref='register'>Register</a></li>
-          <li><a ui-sref="profile"><img 
-            gravatar-src="vm.isLoggedIn().email" 
-            gravatar-size="40" 
+          <li ng-if='vm.isLoggedIn()'><a ui-sref='list' >Schedule</a></li>
+          <li ng-if='!vm.isLoggedIn()' ><a ui-sref='login'>Login</a></li>
+          <li ng-if='vm.isLoggedIn()' ><a ng-click='vm.logout()'>Logout</a></li>
+          <li ng-if='!vm.isLoggedIn()' ><a ui-sref='register'>Register</a></li>
+          <li ng-if='vm.isLoggedIn()' ><a 
+            ui-sref="profile" 
+            ng-bind="vm.isLoggedIn().displayName || vm.isLoggedIn().email"></a></li>
+          <li ng-if="vm.isLoggedIn()"><a ui-sref="profile"><img 
+            ng-src="{{ vm.isLoggedIn().photoURL }}" 
             alt="{{vm.isLoggedIn().email}}"
           ></a></li>
         </ul>

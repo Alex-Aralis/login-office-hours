@@ -2,19 +2,9 @@
 <form ng-submit='form.$valid && vm.wrappedSubmitFunction()' class="row column" name='form' novalidate>
   <div class="row column log-in-form">
     <h4 class="text-center" ng-bind='vm.formTitle'></h4>
-    <label>Name
-      <input    
-        autofocus
-        ng-model='vm.user.displayName' 
-        type="text" 
-        placeholder="John Smith"
-        required
-        name='displayName'
-        ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1000, 'blur':1000}}"
-      >
-    </label>
     <label>Email
       <input    
+        autofocus
         ng-model='vm.user.email' 
         type="email" 
         placeholder="somebody@example.com"
@@ -59,11 +49,6 @@
   <div class='row column'>
     <div class='callout alert' ng-show='form.$submitted && form.password.$error.required'>
         Email required.
-    </div>
-  </div>
-  <div class='row column'>
-    <div class='callout alert' ng-show='form.$submitted && form.displayName.$error.required'>
-        Name required.
     </div>
   </div>
 </form>
