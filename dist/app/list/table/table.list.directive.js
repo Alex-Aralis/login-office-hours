@@ -19,8 +19,8 @@
             };
         }
 
-        ListTableDirectiveController.$inject = ['$scope', 'firebaseData', 'texter', 'scheduler'];
-        function ListTableDirectiveController($scope, firebaseData, texter, scheduler){
+        ListTableDirectiveController.$inject = ['$scope', 'texter', 'scheduler', 'hacks'];
+        function ListTableDirectiveController($scope, texter, scheduler, hacks){
             var vm = this;
 
             vm.deleteMutant = deleteMutant;
@@ -59,7 +59,7 @@
                         console.log(processedText);
                         vm.error = processedText.error;
                     }
-                    firebaseData.safeDigest($scope);
+                    hacks.safeDigest($scope);
                 });
             }
         }

@@ -4,8 +4,8 @@
     angular.module('mutantApp.services.core')
         .factory('auth', authFactory);
 
-    authFactory.$inject = ['$rootScope', '$q', 'firebaseData', '$firebaseAuth', 'scheduler', 'gravatarData'];
-    function authFactory($rootScope, $q, firebaseData, $firebaseAuth, scheduler, gravatarData){
+    authFactory.$inject = ['$q', '$firebaseAuth', 'scheduler', 'gravatarData', 'hacks'];
+    function authFactory($q, $firebaseAuth, scheduler, gravatarData, hacks){
         var fauth = $firebaseAuth();
        
         var service = {
@@ -50,13 +50,13 @@
                                     photoURL: gravatarData.getUrl(user.email, {backup: 'identicon'}),
                                     displayName: gravatarUser.displayName,
                                 }).then(function(setUser){
-                                    firebaseData.safeDigest($rootScope);
+                                    hacks.safeDigest();
                                 });
                             }catch(err){
                                 user.updateProfile({
                                     photoURL: gravatarData.getUrl(user.email, {backup: 'identicon'}),
                                 }).then(function(setUser){
-                                    firebaseData.safeDigest($rootScope);
+                                    hacks.safeDigest();
                                 });
                                 
                             }

@@ -13,19 +13,11 @@
             processedTexts: root.child('texts').child('processed'),
             pendingEmails: root.child('emails').child('pending'),
             processedEmails: root.child('emails').child('processed'),
-            safeDigest: safeDigest,
         }
 
         return firebaseData;
 
         //////////////////
-
-        function safeDigest(scope){
-            try
-                {scope.$digest();}
-            catch (e)
-                {console.log(e);}
-        }
 
     }
 })();

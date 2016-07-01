@@ -12,9 +12,9 @@
 
     ////////////////////////////
 
-    runFunction.$inject = ['$state', '$rootScope', 'firebaseData', 'auth'];
+    runFunction.$inject = ['$state', '$rootScope', 'auth', 'hacks'];
 
-    function runFunction($state, $rootScope, firebaseData, auth){
+    function runFunction($state, $rootScope, auth, hacks){
         $rootScope.$on('$stateChangeError',
             function(event, toState, fromState, fromParams, error){
                 $state.go('home');
@@ -22,7 +22,7 @@
         );
 
         auth.authObj.$onAuthStateChanged(function(){
-            firebaseData.safeDigest($rootScope);
+            hacks.safeDigest();
         });
     };
 
