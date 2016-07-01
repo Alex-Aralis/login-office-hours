@@ -18,6 +18,11 @@
           <li><a ng-show='vm.isLoggedIn()' ng-click='vm.logout()'>Logout</a></li>
           <li><a ui-sref="profile" ng-show='vm.isLoggedIn()'>{{ vm.isLoggedIn().displayName }}</a></li>
           <li><a ng-show='!vm.isLoggedIn()' ui-sref='register'>Register</a></li>
+          <li><a ui-sref="profile"><img 
+            gravatar-src="vm.isLoggedIn().email" 
+            gravatar-size="40" 
+            alt="{{vm.isLoggedIn().email}}"
+          ></a></li>
         </ul>
       </div>
     </div>
