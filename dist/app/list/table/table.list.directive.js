@@ -19,8 +19,8 @@
             };
         }
 
-        ListTableDirectiveController.$inject = ['$scope', 'texter', 'scheduler', 'hacks'];
-        function ListTableDirectiveController($scope, texter, scheduler, hacks){
+        ListTableDirectiveController.$inject = ['$scope', 'auth', 'texter', 'scheduler', 'hacks'];
+        function ListTableDirectiveController($scope, auth, texter, scheduler, hacks){
             var vm = this;
 
             vm.deleteMutant = deleteMutant;
@@ -44,6 +44,7 @@
                     name: mutant.name,
                     topic: mutant.topic,
                     phone: mutant.phone,
+                    senderUid: auth.isLoggedIn().uid,
                 }), 
                 function(processedText){
                     console.log('text processed');

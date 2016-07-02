@@ -18,10 +18,12 @@
                 this.phone = obj.phone;
                 this.topic = obj.topic;
                 this.name = obj.name;
+                this.senderUid = obj.senderUid;
             }else{
                 this.phone = null;
                 this.topic = null;
                 this.name = null;
+                this.senderUid = null;
             }   
         }
 

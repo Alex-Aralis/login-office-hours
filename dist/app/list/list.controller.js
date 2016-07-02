@@ -4,8 +4,8 @@
     angular.module('mutantApp.list')
         .controller('listController', listControllerFunction);
 
-    listControllerFunction.$inject = ['scheduler', 'texter', 'user'];
-    function listControllerFunction(scheduler, texter, user){
+    listControllerFunction.$inject = ['scheduler', 'user'];
+    function listControllerFunction(scheduler, user){
         var vm = this;
 
         vm.user = user;        

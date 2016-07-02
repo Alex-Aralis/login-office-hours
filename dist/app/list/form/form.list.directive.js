@@ -13,14 +13,14 @@
                 controllerAs: 'vm',
                 bindToController: true,
                 scope: {
-                    inputMutants: '=',
+                    inputMutant: '=',
                     user: '=',
                 },
             };
         }
 
-        ListFormDirectiveController.$inject = ['scheduler'];
-        function ListFormDirectiveController(scheduler){
+        ListFormDirectiveController.$inject = ['scheduler', 'auth'];
+        function ListFormDirectiveController(scheduler, auth){
             var vm = this;
 
             vm.addMutant = addMutant;
@@ -28,6 +28,7 @@
             ////////////
        
             function addMutant(){
+                console.log(vm.inputMutant);
                 scheduler.addMutantToUser(vm.inputMutant, vm.user);
                 vm.inputMutant = new scheduler.Mutant();
             }
