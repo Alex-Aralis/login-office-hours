@@ -4,8 +4,8 @@
     angular.module("ui.gravatar")
         .factory('gravatarData', GravatarFactory);
 
-    GravatarFactory.$inject = ['$http', 'md5'];
-    function GravatarFactory($http, md5){
+    GravatarFactory.$inject = ['$q', '$http', 'md5'];
+    function GravatarFactory($q, $http, md5){
         'use strict'
 
         var gravatarData = {
@@ -47,11 +47,20 @@
         }
 
         function json(email){
-            return $http.get(
-                'http://cors.io/?u=https://www.gravatar.com/'+md5(email.trim().toLowerCase())+'.json'
-            )
-            .catch(function(err){
-                console.log(err);
+            return $q(function(resolve, reject){
+                if(typeof(email) !== 'string' && email !== ''){
+                    reject('email must be a non-empty string');
+                }
+
+                $http.get(
+                    'http://cors.io/?u=https://www.gravatar.com/'+md5(email.trim().toLowerCase())+'.json'
+                )
+                .then(resolve)
+                .catch(function(err){
+                    console.log(err);
+                    console.log('User has no account on Gravatar.');
+                    resolve(err);
+                });
             });
         }
     }
