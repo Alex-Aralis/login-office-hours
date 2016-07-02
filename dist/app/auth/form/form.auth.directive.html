@@ -10,22 +10,23 @@
         placeholder="somebody@example.com"
         required
         name='email'
-        ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1000, 'blur':1000}}"
+        ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1000, 'blur':0}}"
       >
     </label>
     <label>Password
       <input 
         ng-model='vm.user.password' 
-        type="password" 
-        placeholder="Password"
-        requried
-        name='password'
-        ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1000, 'blur':1000}}"
+        type="{{ showPassword ? 'text' : 'password' }}" 
+        placeholder="owlseveryoneisfondofowls"
+        required
+        name='formPassword'
+        ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1000, 'blur':0}}"
       >
     </label>
     <input 
         id="show-password" 
-        type="checkbox"
+        type="checkbox" 
+        ng-model='showPassword'
     ><label for="show-password">Show password</label>
     <p><button 
         type="submit" 
@@ -37,18 +38,18 @@
     <div class='callout alert' ng-show='vm.error' ng-bind='vm.error'></div>
   </div>
   <div class='row column'>
-    <div class='callout alert' ng-show='form.$submitted && form.email.$error.required'>
+    <div class='callout alert' ng-show='form.email.$dirty && form.email.$error.required'>
         Email required.
     </div>
   </div>
   <div class='row column'>
-    <div class='callout alert' ng-show='form.$submitted && form.email.$error.email'>
+    <div class='callout alert' ng-show='form.email.$dirty && form.email.$error.email'>
         Invalid email format.
     </div>
   </div>
   <div class='row column'>
-    <div class='callout alert' ng-show='form.$submitted && form.password.$error.required'>
-        Email required.
+    <div class='callout alert' ng-show='form.formPassword.$dirty && form.formPassword.$error.required'>
+        Password required.
     </div>
   </div>
 </form>

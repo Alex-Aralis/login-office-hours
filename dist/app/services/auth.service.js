@@ -4,8 +4,17 @@
     angular.module('mutantApp.services.core')
         .factory('auth', authFactory);
 
-    authFactory.$inject = ['$q', '$firebaseAuth', 'firebaseData', 'scheduler', 'gravatarData', 'hacks'];
-    function authFactory($q, $firebaseAuth, firebaseData, scheduler, gravatarData, hacks){
+    authFactory.$inject = [
+        '$rootScope', 
+        '$q', 
+        '$firebaseAuth', 
+        'firebaseData', 
+        'scheduler', 
+        'gravatarData', 
+        'hacks'
+    ];
+
+    function authFactory($rootScope, $q, $firebaseAuth, firebaseData, scheduler, gravatarData, hacks){
         var fauth = $firebaseAuth();
        
         var service = {
@@ -30,7 +39,7 @@
 
         ///////////////////////
 
-        fauth.$onAuthStateChanged($scope.$digest);
+        fauth.$onAuthStateChanged($rootScope.$digest);
 
         function updatePublicUserInfo(user, info){
             console.log(info);
@@ -38,20 +47,7 @@
 
             var infoRef = firebaseData.users.child(user.uid).child('info');
 
-            if(info.email){
-                console.log('email found');
-
-                infoRef.child('email').set(info.email,
-                    function(something, err){
-                        console.log(something);
-                        if(err){
-                            console.log(err);
-                        }else{
-                            console.log('email saved in public info');
-                        } 
-                    });
-            }
-
+            if(info.email){infoRef.child('email').set(info.email);}
             if(info.displayName){infoRef.child('displayName').set(info.displayName);}
             if(info.phone){infoRef.child('phone').set(info.phone);}
         }

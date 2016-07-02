@@ -28,7 +28,6 @@
             ////////////
        
             function addMutant(){
-                console.log(vm.inputMutant);
                 scheduler.addMutantToUser(vm.inputMutant, vm.user);
                 vm.inputMutant = new scheduler.Mutant();
             }

@@ -21,8 +21,8 @@
         };
     }
 
-    AuthFormDirectiveController.$inject = ['$scope', 'auth'];
-    function AuthFormDirectiveController($scope, auth){
+    AuthFormDirectiveController.$inject = ['$scope', 'auth', 'hacks'];
+    function AuthFormDirectiveController($scope, auth, hacks){
         var vm = this;
 
         vm.user = new auth.User();
@@ -34,6 +34,8 @@
             vm.submitFunction({user: vm.user});
             if($scope.form.$valid){
                 vm.user = new auth.User();
+                $scope.form.$setPristine();
+                hacks.safeDigest($scope);
             }else{
                 vm.error = null;
             }
