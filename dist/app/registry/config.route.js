@@ -9,7 +9,7 @@
         $stateProvider
 
         .state('registry',{
-            url: '/template',
+            url: '/registry',
             templateUrl: 'app/registry/registry.html',
             controller: 'RegistryController',
             controllerAs: 'vm',

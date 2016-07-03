@@ -7,6 +7,11 @@
             </tr>
         </thead>
         <tbody>
+            <tr ng-show="vm.users.length === 0">
+                <td colspan="2" align="center">
+                    No users to load. ):
+                </td>
+            </tr>
             <tr ng-repeat="user in vm.users" ui-sref='list({uid: vm.users.$keyAt(user)})'>
                 <td>{{ user.info.displayName }}</td>
                 <td>{{ user.info.email }}</td>

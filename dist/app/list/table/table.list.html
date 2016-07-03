@@ -13,14 +13,20 @@
                 <th>Complete</th>
                 <th ng-if="vm.isLoggedIn().uid === vm.user.uid">Actions</th>
             </tr>
+        </thead>
 
         <tbody>
+            <tr ng-show="vm.mutants.length === 0">
+                <td colspan="{{ vm.isLoggedIn().uid === vm.user.uid ? '6' : '5' }}" align="center">
+                    No mutants scheduled. ):
+                </td>
+            </tr>
             <tr ng-repeat="mutant in vm.mutants | orderBy: '-' ">
                 <td>{{ mutant.name }}</td>
                 <td>{{ mutant.phone }}</td>
                 <td>{{ mutant.topic }}</td>
                 <td>{{ mutant.notified ? 'Yes' : 'No' }}</td>
-                <td ng-if="vm.isLoggedIn().uid === vm.user.uid">
+                <td align="center" ng-if="vm.isLoggedIn().uid === vm.user.uid">
                     <input 
                         type="checkbox" 
                         ng-model="mutant.complete" 

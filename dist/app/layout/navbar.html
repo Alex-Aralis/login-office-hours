@@ -13,7 +13,7 @@
       <div class="top-bar-right">
         <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
           <li ng-if='vm.isLoggedIn()'><a ui-sref='list({uid: vm.isLoggedIn().uid})' >Schedule</a></li>
-          <li ng-if='vm.isLoggedIn()'><a ui-sref='registry' >Registry</a></li>
+          <li><a ui-sref='registry' >Registry</a></li>
           <li ng-if='!vm.isLoggedIn()' ><a ui-sref='login'>Login</a></li>
           <li ng-if='vm.isLoggedIn()' ><a ng-click='vm.logout()'>Logout</a></li>
           <li ng-if='!vm.isLoggedIn()' ><a ui-sref='register'>Register</a></li>
