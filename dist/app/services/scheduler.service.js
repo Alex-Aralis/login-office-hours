@@ -8,12 +8,14 @@
             Mutant: Mutant,
             getMutantsOfUser: getMutantsOfUser,
             getUnfinishedMutantsOfUser: getUnfinishedMutantsOfUser,
+            getUnnotifiedMutantsOfUser: getUnnotifiedMutantsOfUser,
             addMutantToUser: addMutantToUser,
             updateMutantInMutants: updateMutantInMutants,
             deleteMutantFromMutants: deleteMutantFromMutants,
             reset: reset,
             mutants: null,
             unfinishedMutants: null,
+            unnotifiedMutants: null,
         };
 
         return scheduler;
@@ -40,6 +42,11 @@
         function getUnfinishedMutantsOfUser(user){
             return scheduler.unfinishedMutants = scheduler.unfinishedMutants || 
                 $firebaseArray(firebaseData.getUnfinishedUserMutantsRef(user));
+        }
+
+        function getUnnotifiedMutantsOfUser(user){
+            return scheduler.unnotifiedMutants = scheduler.unnotifiedMutants || 
+                $firebaseArray(firebaseData.getUnnotifiedUserMutantsRef(user));
         }
 
         function getMutantsOfUser(user){

@@ -14,7 +14,8 @@
             pendingEmails: root.child('emails').child('pending'),
             processedEmails: root.child('emails').child('processed'),
             getUserMutantsRef: getUserMutantsRef,
-            getUnfinishedUserMutantsRef: getUnfinishedUserMutantsRef
+            getUnfinishedUserMutantsRef: getUnfinishedUserMutantsRef,
+            getUnnotifiedUserMutantsRef: getUnnotifiedUserMutantsRef,
         }
 
         return firebaseData;
@@ -27,6 +28,10 @@
 
         function getUnfinishedUserMutantsRef(user){
             return firebaseData.getUserMutantsRef(user).orderByChild('isComplete').equalTo(false);
+        }
+
+        function getUnnotifiedUserMutantsRef(user){
+            return firebaseData.getUserMutantsRef(user).orderByChild('notified').equalTo(false);
         }
     }
 })();

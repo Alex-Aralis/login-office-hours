@@ -12,6 +12,7 @@
         vm.inputMutant = new scheduler.Mutant();
         vm.mutants = scheduler.getMutantsOfUser(vm.urlUser);
         vm.unfinishedMutants = scheduler.getUnfinishedMutantsOfUser(vm.urlUser);
+        vm.unnotifiedMutants = scheduler.getUnnotifiedMutantsOfUser(vm.urlUser);
         vm.listToShow = 'all';
         vm.onTabButtonClick = onTabButtonClick;
         vm.buttons = [
@@ -23,6 +24,11 @@
             {
                 innerText: 'Unfinished',
                 list: 'unfinished',
+                active: false,
+            },
+            {
+                innerText: 'Unnotified',
+                list: 'unnotified',
                 active: false,
             },
         ]

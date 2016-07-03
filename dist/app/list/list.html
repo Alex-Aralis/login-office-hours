@@ -24,3 +24,11 @@
     class='row column small-12 
     collapse'
 ></aa-list-table>
+
+<aa-list-table 
+    ng-show="vm.listToShow === 'unnotified'" 
+    user='vm.urlUser' 
+    mutants='vm.unnotifiedMutants' 
+    class='row column small-12 
+    collapse'
+></aa-list-table>
