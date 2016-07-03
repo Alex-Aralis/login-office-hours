@@ -27,7 +27,7 @@
                         ng-change="vm.toggleComplete(mutant)"
                     >
                 </td>
-                <td ng-if="!vm.isLoggedIn().uid !== vm.user.uid">
+                <td ng-if="vm.isLoggedIn().uid !== vm.user.uid">
                     {{ mutant.isComplete ? 'Yes' : 'No' }}
                 </td>
                 <td ng-if="vm.isLoggedIn().uid === vm.user.uid">

@@ -16,9 +16,7 @@
 
     function runFunction($state, $rootScope, scheduler, auth, hacks){
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams){
-            console.log( event, toState, toParams, fromState, fromParams);            
             if(fromState.name === 'list'){
-                console.log('resetting scheduler');
                 scheduler.reset();
             }
         });
