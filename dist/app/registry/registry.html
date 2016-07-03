@@ -1,0 +1,16 @@
+<div class='row column small-12 collapse'>
+    <table class='hover'>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in vm.users" ui-sref='list({uid: vm.users.$keyAt(user)})'>
+                <td>{{ user.info.displayName }}</td>
+                <td>{{ user.info.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

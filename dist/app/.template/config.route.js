@@ -9,10 +9,9 @@
         $stateProvider
 
         .state('template',{
-            parent: 'navbar',
             url: '/template',
             templateUrl: 'app/template/template.html',
-            controller: 'TemplateController'
+            controller: 'TemplateController',
             controllerAs: 'vm',
         });
     }
