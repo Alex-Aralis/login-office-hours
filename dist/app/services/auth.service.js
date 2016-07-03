@@ -28,6 +28,7 @@
             User: User,
             updateUser: updateUser,
             updatePublicUserInfo: updatePublicUserInfo,
+            sendPasswordResetEmail: sendPasswordResetEmail,
         }; 
 
         return service;
@@ -125,6 +126,10 @@
 
         function getUser(){
             return fauth.$requireSignIn();
+        }
+
+        function sendPasswordResetEmail(email){
+            return fauth.$sendPasswordResetEmail(email);
         }
 
         function getNoUser(){

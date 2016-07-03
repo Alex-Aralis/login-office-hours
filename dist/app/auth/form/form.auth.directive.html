@@ -16,7 +16,7 @@
     <label>Password
       <input 
         ng-model='vm.user.password' 
-        type="{{ showPassword ? 'text' : 'password' }}" 
+        type="{{ vm.showPassword ? 'text' : 'password' }}" 
         placeholder="owlseveryoneisfondofowls"
         required
         name='formPassword'
@@ -26,13 +26,23 @@
     <input 
         id="show-password" 
         type="checkbox" 
-        ng-model='showPassword'
+        ng-model='vm.showPassword'
     ><label for="show-password">Show password</label>
     <p><button 
         type="submit" 
         class="button expanded"
         ng-bind='vm.formButtonText'
     >Register</button></p>
+    <p ng-show='vm.passwordReset'><a 
+        ng-click='vm.sendPasswordResetEmail(vm.user.email)'
+    >
+        Forget your password?
+    </a></p>
+  </div>
+  <div class='row column'>
+    <div class='callout success' ng-show='vm.passwordResetEmailSent'><p>
+        A password reset email has been sent to &lt;{{ vm.passwordResetEmailSent }}&gt;.
+    </p></div>
   </div>
   <div class='row column'>
     <div class='callout alert' ng-show='vm.error' ng-bind='vm.error'></div>

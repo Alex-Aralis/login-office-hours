@@ -17,6 +17,7 @@
                 formTitle: '@',
                 submitFunction: '&',
                 error: '=',
+                passwordReset: '@',
             },
         };
     }
@@ -27,18 +28,45 @@
 
         vm.user = new auth.User();
         vm.wrappedSubmitFunction = wrappedSubmitFunction;
+        vm.sendPasswordResetEmail = sendPasswordResetEmail;
+        vm.passwordResetEmailSent = false;
+        vm.clearForm = clearForm;
+        vm.resetMessages = resetMessages;
 
         ////////////
+
+        function sendPasswordResetEmail(email){
+            resetMessages();
+
+            auth.sendPasswordResetEmail(email)
+                .then(function(){
+                    vm.passwordResetEmailSent = email;
+                })
+                .catch(function(err){
+                    vm.error = err;
+                });
+        }
 
         function wrappedSubmitFunction(){
             vm.submitFunction({user: vm.user});
             if($scope.form.$valid){
-                vm.user = new auth.User();
-                $scope.form.$setPristine();
-                hacks.safeDigest($scope);
+                clearForm();
             }else{
                 vm.error = null;
             }
+        }
+        
+        function resetMessages(){
+            $scope.form.$setPristine();
+            hacks.safeDigest($scope);
+            vm.error = null;
+            vm.passwordResetEmailSent = false;
+        }
+
+        function clearForm(){
+            vm.inputUser = new auth.User();
+            vm.showPassword = false;
+            resetMessages();
         }
     }
 })();
