@@ -4,9 +4,9 @@
 
         <p> nothing much happens here right now but that will change soon.</p>
 
-        <a ng-show='vm.isLoggedIn()' ui-sref='list({uid: "7Ea56SLvUBcwHsQx97kisGsfDZq1"})' class="large button">Schedule Some Mutants!</a> 
-        <a ng-show='!vm.isLoggedIn()' ui-sref='login' class="large button">Login</a> 
-        <a ng-show='!vm.isLoggedIn()' ui-sref='register' class="large button">Get Registered!</a> 
-    
+        <a ng-show='vm.isLoggedIn()' ui-sref='list({uid: vm.isLoggedIn().uid})' class="large button">Schedule Some Mutants!</a> 
+        <a ng-show='!vm.isLoggedIn()' ui-sref='login' class="large button">Professor Login</a> 
+        <a ng-show='!vm.isLoggedIn()' ui-sref='register' class="large button">New Professors</a> 
+        <a ui-sref="registry" class="large button">Find your Professor!</a>    
     </div>
 </div>
