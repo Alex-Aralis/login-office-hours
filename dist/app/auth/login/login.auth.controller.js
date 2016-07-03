@@ -19,7 +19,7 @@
                 console.log('being thened');
                 console.log(err, ret);
                 vm.error = null;
-                $state.go('list');
+                $state.go('list', {uid: auth.isLoggedIn().uid});
             })
             .catch(function(err){
                 console.log('being caught');

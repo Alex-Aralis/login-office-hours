@@ -28,7 +28,6 @@
 
         function reset(){
             if (scheduler.mutants){
-                $state.go('home');
                 scheduler.mutants.$destroy();
                 scheduler.mutants = null;
             }

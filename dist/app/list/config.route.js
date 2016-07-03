@@ -9,7 +9,7 @@
         $stateProvider
 
         .state('list',{
-            url: '/list',
+            url: '/:uid/list',
             templateUrl: 'app/list/list.html',
             controller: 'listController',
             controllerAs: 'vm',

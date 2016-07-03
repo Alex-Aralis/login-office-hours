@@ -16,8 +16,8 @@
     }
 
     
-    NavbarController.$inject = ['$rootScope','auth', 'firebaseData'];
-    function NavbarController($rootScope, auth, firebaseData){
+    NavbarController.$inject = ['$rootScope','$state','auth', 'firebaseData'];
+    function NavbarController($rootScope, $state, auth, firebaseData){
         var vm = this;
 
         vm.logout = logout;
@@ -27,6 +27,7 @@
        
         function logout(){
             auth.logout();
+            $state.go('home');
         }
         
     }
