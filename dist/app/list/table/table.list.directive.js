@@ -14,6 +14,7 @@
                 bindToController: true,
                 scope: {
                     mutants: '=',
+                    user: '=',
                 },
             };
         }
@@ -26,6 +27,7 @@
             vm.toggleComplete = toggleComplete;
             vm.sendTextTo = sendTextTo;
             vm.error = null;
+            vm.isLoggedIn = auth.isLoggedIn;
 
             ////////////
 
