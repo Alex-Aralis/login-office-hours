@@ -36,6 +36,8 @@
                 scheduler.mutants = null;
                 scheduler.unfinishedMutants.$destroy();
                 scheduler.unfinishedMutants = null;
+                scheduler.unnotifiedMutants.$destroy();
+                scheduler.unnotifiedMutants = null;
             }
         }
 

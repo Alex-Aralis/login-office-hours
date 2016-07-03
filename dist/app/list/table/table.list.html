@@ -1,17 +1,20 @@
 <div class='row column small-12 collapse'>
     <div class='callout alert' ng-bind='vm.error.message' ng-show='vm.error'></div>
 </div>
+<div class='row column small-12 collapse'>
+    <div class='callout success' ng-bind='vm.success.message' ng-show='vm.success.message'></div>
+</div>
 
 <div class='row column small-12 collapse'>
     <table class='hover'>
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Topic</th>
-                <th>Notified</th>
-                <th>Complete</th>
-                <th ng-if="vm.isLoggedIn().uid === vm.user.uid">Actions</th>
+                <th 
+                    ng-repeat='th in vm.ths' 
+                    ng-click='vm.onThClick($index)' 
+                    ng-bind='th.innerText' 
+                    ng-if='th.public ||  vm.isLoggedIn().uid === vm.user.uid'
+                ></th>
             </tr>
         </thead>
 
@@ -21,7 +24,7 @@
                     No mutants scheduled. ):
                 </td>
             </tr>
-            <tr ng-repeat="mutant in vm.mutants | orderBy: '-' ">
+            <tr ng-repeat="mutant in vm.mutants | orderBy: vm.orderByExp ">
                 <td>{{ mutant.name }}</td>
                 <td>{{ mutant.phone }}</td>
                 <td>{{ mutant.topic }}</td>

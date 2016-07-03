@@ -56,3 +56,11 @@
   border-color: transparent #fff transparent transparent; }
 
 
+th {
+    cursor: pointer;
+    -webkit-user-select: none;
+}
+
+.button {
+    -webkit-user-select: none;
+}
