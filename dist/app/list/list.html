@@ -1,3 +1,26 @@
-<aa-list-form user='vm.urlUser' class="row column" input-mutant='vm.inputMutant'></aa-list-form>
+<aa-list-form user='vm.urlUser' class="row" input-mutant='vm.inputMutant'></aa-list-form>
 
-<aa-list-table user='vm.urlUser' mutants='vm.mutants' class='row column small-12 collapse'></aa-list>
+<div class='row'><div class='column'><div class='button-group'>
+    <a 
+        class='button {{ button.active ? "warning" : "secondary" }}' 
+        ng-click='vm.onTabButtonClick($index)' 
+        ng-repeat='button in vm.buttons'
+    >
+        {{ button.innerText }}
+    </a>
+</div></div></div>
+
+<aa-list-table 
+    ng-show="vm.listToShow === 'all'" 
+    user='vm.urlUser' 
+    mutants='vm.mutants' 
+    class='row column small-12 collapse'
+></aa-list-table>
+
+<aa-list-table 
+    ng-show="vm.listToShow === 'unfinished'" 
+    user='vm.urlUser' 
+    mutants='vm.unfinishedMutants' 
+    class='row column small-12 
+    collapse'
+></aa-list-table>

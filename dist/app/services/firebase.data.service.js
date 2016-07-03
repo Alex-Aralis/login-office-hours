@@ -13,11 +13,20 @@
             processedTexts: root.child('texts').child('processed'),
             pendingEmails: root.child('emails').child('pending'),
             processedEmails: root.child('emails').child('processed'),
+            getUserMutantsRef: getUserMutantsRef,
+            getUnfinishedUserMutantsRef: getUnfinishedUserMutantsRef
         }
 
         return firebaseData;
 
         //////////////////
 
+        function getUserMutantsRef(user){
+            return firebaseData.users.child(user.uid).child('mutants');
+        }
+
+        function getUnfinishedUserMutantsRef(user){
+            return firebaseData.getUserMutantsRef(user).orderByChild('isComplete').equalTo(false);
+        }
     }
 })();

@@ -7,11 +7,13 @@
         var scheduler =  {
             Mutant: Mutant,
             getMutantsOfUser: getMutantsOfUser,
+            getUnfinishedMutantsOfUser: getUnfinishedMutantsOfUser,
             addMutantToUser: addMutantToUser,
             updateMutantInMutants: updateMutantInMutants,
             deleteMutantFromMutants: deleteMutantFromMutants,
             reset: reset,
             mutants: null,
+            unfinishedMutants: null,
         };
 
         return scheduler;
@@ -30,12 +32,19 @@
             if (scheduler.mutants){
                 scheduler.mutants.$destroy();
                 scheduler.mutants = null;
+                scheduler.unfinishedMutants.$destroy();
+                scheduler.unfinishedMutants = null;
             }
+        }
+
+        function getUnfinishedMutantsOfUser(user){
+            return scheduler.unfinishedMutants = scheduler.unfinishedMutants || 
+                $firebaseArray(firebaseData.getUnfinishedUserMutantsRef(user));
         }
 
         function getMutantsOfUser(user){
             return scheduler.mutants = scheduler.mutants || 
-                $firebaseArray(firebaseData.users.child(user.uid).child('mutants'));
+                $firebaseArray(firebaseData.getUserMutantsRef(user));
         }
 
         function addMutantToUser(mutant, user){
