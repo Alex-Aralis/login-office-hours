@@ -19,8 +19,15 @@
             };
         }
 
-        ListTableDirectiveController.$inject = ['$scope', '$rootScope', 'auth', 'texter', 'scheduler', 'hacks'];
-        function ListTableDirectiveController($scope, $rootScope, auth, texter, scheduler, hacks){
+        ListTableDirectiveController.$inject = ['$scope', 
+            '$rootScope', 
+            'auth', 
+            'texter', 
+            'scheduler', 
+            'hacks', 
+            'th'
+        ];
+        function ListTableDirectiveController($scope, $rootScope, auth, texter, scheduler, hacks, th){
             var vm = this;
 
             vm.deleteMutant = deleteMutant;
@@ -32,27 +39,27 @@
             vm.clearMessages = clearMessages;
             vm.onThClick = onThClick;
             vm.ths = [
-                new Th({
+                new th.Th({
                     innerText: 'Name',
                     orderByExp: 'name',
                 }),
-                new Th({
+                new th.Th({
                     innerText: 'Phone',
                     orderByExp: 'phone',
                 }),
-                new Th({
+                new th.Th({
                     innerText: 'Topic',
                     orderByExp: 'topic',
                 }),
-                new Th({
+                new th.Th({
                     innerText: 'Notified',
                     orderByExp: 'notified',
                 }),
-                new Th({
+                new th.Th({
                     innerText: 'Complete',
                     orderByExp: 'isComplete',
                 }),
-                new Th({
+                new th.Th({
                     innerText: 'Actions',
                     orderByExp: '',
                     public: false,
@@ -60,14 +67,6 @@
             ]
 
             ////////////
-
-            function Th (opts){
-                this.modifier = (opts.modifier ? opts.modifier : null);
-                this.active = (opts.active ? opts.acitve : false);
-                this.innerText = (opts.innerText ? opts.innerText : 'Default');
-                this.orderByExp = (opts.orderByExp ? opts.orderByExp : '');
-                this.public = (opts.public === undefined ? opts.public : true);
-            }
 
             vm.mutants.$watch(function(event){
                 console.log(event);
@@ -77,21 +76,7 @@
             });
 
             function onThClick(index){
-                vm.ths.forEach(function(th, i){
-                    if(i === index){
-                        th.active = true;
-                        if(th.modifier !== '-'){
-                            th.modifier = '-';
-                        }else{
-                            th.modifier = '+';
-                        }
-        
-                        vm.orderByExp = th.modifier + th.orderByExp;
-                    }else{
-                        th.active = false;
-                        th.modifier = null;
-                    }
-                });
+                vm.orderByExp = th.getOrderByExp(index, vm.ths);
             }
 
             function deleteMutant(mutant){
