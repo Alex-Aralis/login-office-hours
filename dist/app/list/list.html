@@ -1,8 +1,9 @@
-<div style='display: relative; width: 100%'>
-<aa-list-form user='vm.urlUser' input-mutant='vm.inputMutant'></aa-list-form>
+<div style='display: relative; width: 100%' class="row">
+<aa-list-form class="column" user='vm.urlUser' input-mutant='vm.inputMutant'></aa-list-form>
 </div>
 
-<div class='row'><div class='column'><div class='button-group'>
+<div style='display: relative; width: 100%' class="row align-center">
+<div class='column shrink'><div class='button-group'>
     <a 
         class='button {{ button.active ? "warning" : "secondary" }}' 
         ng-click='vm.onTabButtonClick($index)' 
@@ -12,25 +13,25 @@
     </a>
 </div></div></div>
 
+<div style='display: relative; width: 100%' class="row align-center">
 <aa-list-table 
     ng-show="vm.listToShow === 'all'" 
     user='vm.urlUser' 
     mutants='vm.mutants' 
-    class='row column small-12 collapse'
+    class='column small-12 large-10 collapse'
 ></aa-list-table>
 
 <aa-list-table 
     ng-show="vm.listToShow === 'unfinished'" 
     user='vm.urlUser' 
     mutants='vm.unfinishedMutants' 
-    class='row column small-12 
-    collapse'
+    class='column small-12 large-10 collapse'
 ></aa-list-table>
 
 <aa-list-table 
     ng-show="vm.listToShow === 'unnotified'" 
     user='vm.urlUser' 
     mutants='vm.unnotifiedMutants' 
-    class='row column small-12 
-    collapse'
+    class='column small-12 large-10 collapse'
 ></aa-list-table>
+</div>
