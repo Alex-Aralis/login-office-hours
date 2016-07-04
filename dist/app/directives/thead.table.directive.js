@@ -24,7 +24,6 @@
     function TheadDirectiveController(th){
         var vm = this;
         
-        console.log('trying to set private');
         vm.onThClick = onThClick;
         
         ////////////
