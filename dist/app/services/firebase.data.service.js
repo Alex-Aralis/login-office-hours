@@ -16,22 +16,26 @@
             getUserMutantsRef: getUserMutantsRef,
             getUnfinishedUserMutantsRef: getUnfinishedUserMutantsRef,
             getUnnotifiedUserMutantsRef: getUnnotifiedUserMutantsRef,
+            getUserRef: getUserRef,
         }
 
         return firebaseData;
 
         //////////////////
-
-        function getUserMutantsRef(user){
-            return firebaseData.users.child(user.uid).child('mutants');
+        function getUserRef(uid){
+            return firebaseData.users.child(uid)
         }
 
-        function getUnfinishedUserMutantsRef(user){
-            return firebaseData.getUserMutantsRef(user).orderByChild('isComplete').equalTo(false);
+        function getUserMutantsRef(uid){
+            return getUserRef(uid).child('mutants');
         }
 
-        function getUnnotifiedUserMutantsRef(user){
-            return firebaseData.getUserMutantsRef(user).orderByChild('notified').equalTo(false);
+        function getUnfinishedUserMutantsRef(uid){
+            return firebaseData.getUserMutantsRef(uid).orderByChild('isComplete').equalTo(false);
+        }
+
+        function getUnnotifiedUserMutantsRef(uid){
+            return firebaseData.getUserMutantsRef(uid).orderByChild('notified').equalTo(false);
         }
     }
 })();

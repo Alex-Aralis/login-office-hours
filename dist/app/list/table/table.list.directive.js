@@ -69,7 +69,6 @@
             ////////////
 
             vm.mutants.$watch(function(event){
-                console.log(event);
                 if(event.event === 'child_added'){
                     vm.clearMessages();
                 }

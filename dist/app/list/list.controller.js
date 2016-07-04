@@ -4,17 +4,19 @@
     angular.module('mutantApp.list')
         .controller('listController', listControllerFunction);
 
-    listControllerFunction.$inject = ['$stateParams', 'scheduler'];
-    function listControllerFunction($stateParams, scheduler){
+    listControllerFunction.$inject = ['$stateParams', '$firebaseObject', 'auth', 'firebaseData', 'scheduler'];
+    function listControllerFunction($stateParams, $firebaseObject, auth, firebaseData, scheduler){
         var vm = this;
-
-        vm.urlUser = {uid: $stateParams.uid};
+        
+        vm.urlUid = $stateParams.uid;
+        vm.urlUser = $firebaseObject(firebaseData.getUserRef(vm.urlUid).child('info'));
         vm.inputMutant = new scheduler.Mutant();
-        vm.mutants = scheduler.getMutantsOfUser(vm.urlUser);
-        vm.unfinishedMutants = scheduler.getUnfinishedMutantsOfUser(vm.urlUser);
-        vm.unnotifiedMutants = scheduler.getUnnotifiedMutantsOfUser(vm.urlUser);
+        vm.mutants = scheduler.getMutantsOfUser(vm.urlUid);
+        vm.unfinishedMutants = scheduler.getUnfinishedMutantsOfUser(vm.urlUid);
+        vm.unnotifiedMutants = scheduler.getUnnotifiedMutantsOfUser(vm.urlUid);
         vm.listToShow = 'all';
         vm.onTabButtonClick = onTabButtonClick;
+        vm.isLoggedIn = auth.isLoggedIn;
         vm.buttons = [
             {
                 innerText: 'All Messages',

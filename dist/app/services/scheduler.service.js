@@ -32,11 +32,20 @@
 
         function reset(){
             if (scheduler.mutants){
-                scheduler.mutants.$destroy();
+                if( scheduler.mutants && scheduler.mutants.$destroy ){
+                    scheduler.mutants.$destroy();
+                }
+
+                if( scheduler.unfinishedMutants && scheduler.unfinishedMutants.$destroy ){
+                    scheduler.unfinishedMutants.$destroy();
+                }
+
+                if( scheduler.unnotifiedMutants && scheduler.unnotifiedMutants.$destroy ){
+                    scheduler.unnotifiedMutants.$destroy();
+                }
+
                 scheduler.mutants = null;
-                scheduler.unfinishedMutants.$destroy();
                 scheduler.unfinishedMutants = null;
-                scheduler.unnotifiedMutants.$destroy();
                 scheduler.unnotifiedMutants = null;
             }
         }

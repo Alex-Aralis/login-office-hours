@@ -30,7 +30,9 @@
         //////////////////
 
         function reset(){
-            texter.pendingTexts.$destroy();
+            if(texter.pendingTexts && texter.pendingTexts.$destroy){
+                texter.pendingTexts.$destroy();
+            }           
             texter.pendingTexts = null;
         }
 
