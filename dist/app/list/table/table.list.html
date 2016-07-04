@@ -7,20 +7,11 @@
 
 <div class='row column small-12 collapse'>
     <table class='hover'>
-        <thead>
-            <tr>
-                <th 
-                    ng-repeat='th in vm.ths' 
-                    ng-click='vm.onThClick($index)' 
-                    ng-if='th.public ||  vm.isLoggedIn().uid === vm.user.uid'
-                    class='{{ th.active ? "active" : "" }}'
-                >
-                    <i class='fa fa-arrow-up' ng-show='th.modifier === "+"'></i>
-                    <i class='fa fa-arrow-down' ng-show='th.modifier === "-"'></i>
-                    <span ng-bind='th.innerText'></span>
-                </th>
-            </tr>
-        </thead>
+        <thead 
+            aa-thead ths='vm.ths' 
+            order-by-exp="vm.orderByExp" 
+            privlaged="{{ vm.isLoggedIn().uid === vm.user.uid }}"
+        ></thead>
 
         <tbody>
             <tr ng-show="vm.mutants.length === 0">

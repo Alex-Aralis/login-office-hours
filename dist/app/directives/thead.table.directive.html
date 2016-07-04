@@ -1,0 +1,12 @@
+<tr>
+    <th 
+        ng-repeat='th in vm.ths' 
+        ng-click='vm.onThClick($index)' 
+        ng-if='th.public ||  vm.privlaged === "true"'
+        class='{{ th.active ? "active" : "" }}'
+    >
+        <i class='fa fa-arrow-up' ng-show='th.modifier === "+"'></i>
+        <i class='fa fa-arrow-down' ng-show='th.modifier === "-"'></i>
+        <span ng-bind='th.innerText'></span>
+    </th>
+</tr>

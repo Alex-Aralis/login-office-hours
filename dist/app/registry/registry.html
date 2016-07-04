@@ -1,18 +1,17 @@
 <div class='row column small-12 collapse'>
     <table class='hover'>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-            </tr>
-        </thead>
+        <thead 
+            aa-thead ths='vm.ths' 
+            order-by-exp="vm.orderByExp" 
+            privlaged="false"
+        ></thead>
         <tbody>
             <tr ng-show="vm.users.length === 0">
                 <td colspan="2" align="center">
                     No users to load. ):
                 </td>
             </tr>
-            <tr ng-repeat="user in vm.users" ui-sref='list({uid: vm.users.$keyAt(user)})'>
+            <tr ng-repeat="user in vm.users | orderBy: vm.orderByExp" ui-sref='list({uid: vm.users.$keyAt(user)})'>
                 <td>{{ user.info.displayName }}</td>
                 <td>{{ user.info.email }}</td>
             </tr>

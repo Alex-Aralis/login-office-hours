@@ -18,7 +18,7 @@
             this.active = (opts.active ? opts.acitve : false);
             this.innerText = (opts.innerText ? opts.innerText : 'Default');
             this.orderByExp = (opts.orderByExp ? opts.orderByExp : '');
-            this.public = (opts.public === undefined ? opts.public : true);
+            this.public = (opts.public === undefined ? true : opts.public);
         }
         
         //////////////////
@@ -35,7 +35,7 @@
                         th.modifier = '+';
                     }
     
-                    var orderByExp = th.modifier + th.orderByExp;
+                    orderByExp = th.modifier + th.orderByExp;
                 }else{
                     th.active = false;
                     th.modifier = null;

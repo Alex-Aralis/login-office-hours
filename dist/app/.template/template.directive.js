@@ -3,9 +3,9 @@
 
     angular
         .module('mutantApp.template')
-        .directive('aaTemplateForm', aaTemplateForm);
+        .directive('aaTemplate', aaTemplate);
 
-    function aaTemplateForm(){
+    function aaTemplate(){
         return {
             templateUrl: 'app/template/template.directive.html',
             restrict: 'E',
