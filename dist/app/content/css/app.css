@@ -68,3 +68,7 @@ th {
 th.active{
     background-color: lightgrey;
 }
+
+tr.clickable-entry {
+    cursor: pointer;
+}

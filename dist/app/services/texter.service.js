@@ -4,11 +4,11 @@
 
     texterFactory.$inject = ['$firebaseArray', '$firebaseObject', 'firebaseData'];
     function texterFactory($firebaseArray, $firebaseObject, firebaseData){
-        var pendingTexts = $firebaseArray(firebaseData.pendingTexts);
-
         var texter =  {
             Text: Text,
             send: send,
+            reset: reset,
+            pendingTexts: null,
         };
 
         return texter;
@@ -29,8 +29,18 @@
 
         //////////////////
 
+        function reset(){
+            texter.pendingTexts.$destroy();
+            texter.pendingTexts = null;
+        }
+
+        function getPendingTexts(){
+            return texter.pendingTexts || 
+                ( texter.pendingTexts = $firebaseArray(firebaseData.pendingTexts) );
+        }
+
         function send(text, callback){
-            pendingTexts.$add(text)
+            getPendingTexts().$add(text)
                 .then(function(ret){
                     console.log(ret.getKey());
                     return firebaseData.processedTexts

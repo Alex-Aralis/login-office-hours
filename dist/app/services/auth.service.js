@@ -10,11 +10,12 @@
         '$firebaseAuth', 
         'firebaseData', 
         'scheduler', 
+        'texter',
         'gravatarData', 
         'hacks'
     ];
 
-    function authFactory($rootScope, $q, $firebaseAuth, firebaseData, scheduler, gravatarData, hacks){
+    function authFactory($rootScope, $q, $firebaseAuth, firebaseData, scheduler, texter, gravatarData, hacks){
         var fauth = $firebaseAuth();
        
         var service = {
@@ -117,6 +118,7 @@
 
         function logout(){
             scheduler.reset();
+            texter.reset();
             return fauth.$signOut();
         }
 
