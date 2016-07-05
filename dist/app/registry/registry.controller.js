@@ -7,7 +7,7 @@
     registryControllerFunction.$inject = ['$firebaseArray', 'firebaseData', 'th'];
     function registryControllerFunction($firebaseArray, firebaseData, th){
         var vm = this;
-        
+       
         vm.orderByExp = '-';
         vm.users = $firebaseArray(firebaseData.users);
         vm.ths = [
@@ -21,5 +21,6 @@
             }),
         ]
 
+        ////////////////////////////
     }
 })();

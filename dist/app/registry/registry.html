@@ -1,8 +1,16 @@
 <div style='display: relative; width: 100%' class="row align-center">
+    <form>
+        <input ng-model="vm.searchbox" type="text" placeholder="Search">
+    </form>
+</div>
+
+
+<div style='display: relative; width: 100%' class="row align-center">
 <div class='row column small-12 medium-10 large-8'>
     <table class='hover'>
         <thead 
-            aa-thead ths='vm.ths' 
+            aa-thead 
+            ths='vm.ths' 
             order-by-exp="vm.orderByExp" 
             privlaged="false"
         ></thead>
@@ -12,7 +20,14 @@
                     No users to load. ):
                 </td>
             </tr>
-            <tr class="clickable-entry" ng-repeat="user in vm.users | orderBy: vm.orderByExp" ui-sref='list({uid: vm.users.$keyAt(user)})'>
+            <tr class="clickable-entry" 
+                ng-repeat="user in vm.users 
+                    | 
+                        filter:{$:vm.searchbox} 
+                    | 
+                        orderBy: vm.orderByExp" 
+                ui-sref='list({uid: vm.users.$keyAt(user)})'
+            >
                 <td>{{ user.info.displayName }}</td>
                 <td>{{ user.info.email }}</td>
             </tr>
