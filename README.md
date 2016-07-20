@@ -2,7 +2,7 @@ Description
 =======
 A clean app that implements user registration, authentication, and routing.
 
-> ***NOTE:*** This page needs to have [Mutant Office Hours Server](https://github.com/Alex-Aralis/mutant-office-hour-server)
+***NOTE:*** This page needs to have [Mutant Office Hours Server](https://github.com/Alex-Aralis/mutant-office-hour-server)
 
 Frameworks
 ======
