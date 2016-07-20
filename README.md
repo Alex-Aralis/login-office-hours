@@ -21,7 +21,7 @@ npm install
 
 in the project root directory.
 
-Check out the [Trello Board](https://trello.com/b/OaqYu17J/mutant-office-hours) for more information on features.
+# Features
 
 Features added after branch from [Seth's Repo](https://github.com/xternbootcamp16/mutant-office-hours).
 - Confirm email with by sending verification email.
@@ -38,6 +38,8 @@ Features added after branch from [Seth's Repo](https://github.com/xternbootcamp1
 - Create a user registry for searching through and navigating to that users list of mutants
 - Sort by column in registry and list
 - Allow sorting through users in registry state
+
+> *Check out the [Trello Board](https://trello.com/b/OaqYu17J/mutant-office-hours) for more information on features.*
 
 production
 ------
